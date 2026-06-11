@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" width="360" height="320" role="img" aria-label="Veris Automatia">
+  <defs>
+    <linearGradient id="silver" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#fbfbfd"/>
+      <stop offset="0.35" stop-color="#c4c8ce"/>
+      <stop offset="0.6" stop-color="#7c818a"/>
+      <stop offset="0.83" stop-color="#bcc0c7"/>
+      <stop offset="1" stop-color="#eceef1"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0.1" y1="0" x2="0.9" y2="1.05">
+      <stop offset="0" stop-color="#f7e8ba"/>
+      <stop offset="0.33" stop-color="#dcbb66"/>
+      <stop offset="0.58" stop-color="#9c7a2e"/>
+      <stop offset="0.8" stop-color="#cda551"/>
+      <stop offset="1" stop-color="#f3dca0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff8e2"/>
+      <stop offset="0.4" stop-color="#f2d488"/>
+      <stop offset="1" stop-color="#caa24c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+
+  <!-- circuit nodes inside the A -->
+  <g stroke="#aeb3ba" stroke-width="1.5" fill="#c7ccd2" opacity="0.85">
+    <path d="M206 200 L206 150 M206 164 L189 142 M206 160 L223 140 M206 150 L197 124 M206 150 L215 122" fill="none"/>
+    <circle cx="206" cy="150" r="3.6" fill="#e7c878"/>
+    <circle cx="189" cy="142" r="2.4"/><circle cx="223" cy="140" r="2.4"/>
+    <circle cx="197" cy="124" r="2.2"/><circle cx="215" cy="122" r="2.2"/>
+    <circle cx="206" cy="200" r="2.4"/>
+  </g>
+
+  <!-- V (silver) -->
+  <path d="M64 98 Q 72 122 100 174 L 130 232 Q 139 250 152 230 L 184 112"
+        fill="none" stroke="url(#silver)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- A (gold), open legs + tail -->
+  <path d="M166 234 L216 72 L272 210 Q 284 238 306 230"
+        fill="none" stroke="url(#gold)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- glint at the apex of the A -->
+  <circle cx="216" cy="72" r="20" fill="url(#glow)" filter="url(#soft)"/>
+  <circle cx="216" cy="71" r="6.5" fill="#fff7e0"/>
+  <circle cx="216" cy="71" r="3" fill="#ffffff"/>
+</svg>

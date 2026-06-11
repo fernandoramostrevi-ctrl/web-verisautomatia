@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veris Automatia — Orquestación, Automatización y Agentes de IA</title>
+<meta name="description" content="Conectamos tus sistemas, automatizamos procesos y desplegamos agentes de IA con la fiabilidad y el control que tu empresa necesita.">
+<link rel="icon" type="image/svg+xml" href="brand/logo-va/veris-symbol.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E0F12; --surface:#16181C; --surface-2:#1C1F25; --line:#282C33;
+    --gold:#C9A24A; --gold-soft:#E0C078; --silver:#C8CCD2; --gray:#8A909A;
+    --gray-2:#B6BBC3; --on-dark:#ECEDEF; --hueso:#F4F2EC;
+    /* motion */
+    --ease-out:cubic-bezier(.23,1,.32,1);
+    --ease-in-out:cubic-bezier(.77,0,.175,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--on-dark);font-family:"Outfit",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3,.dgrotesk{font-family:"Space Grotesk",sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .gold{color:var(--gold)}
+  .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:10px;font-weight:500;font-size:15px;cursor:pointer;border:1px solid transparent;
+    transition:transform .18s var(--ease-out),filter .18s var(--ease-out),border-color .18s var(--ease-out),color .18s var(--ease-out),box-shadow .18s var(--ease-out)}
+  .btn:active{transform:scale(.97)}
+  .btn-gold{background:linear-gradient(135deg,#E0C078,#C9A24A);color:#181206;box-shadow:0 6px 20px rgba(201,162,74,.18)}
+  .btn-ghost{border-color:var(--line);color:var(--on-dark)}
+  @media(hover:hover) and (pointer:fine){
+    .btn-gold:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 10px 28px rgba(201,162,74,.28)}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  }
+  .section{padding:96px 0}
+  .center{text-align:center}
+  .muted{color:var(--gray)}
+
+  /* logo */
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .sym{width:34px;height:32px}
+  .logo .wm{font-weight:300;letter-spacing:.04em;font-size:21px;color:var(--on-dark)}
+  .logo .wm .ia{color:var(--gold);font-weight:400}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(14,15,18,.72);backdrop-filter:blur(12px);border-bottom:1px solid transparent;
+    transition:background .3s var(--ease-out),border-color .3s var(--ease-out),box-shadow .3s var(--ease-out)}
+  header.nav[data-scrolled]{background:rgba(14,15,18,.86);border-bottom-color:var(--line);box-shadow:0 8px 30px rgba(0,0,0,.35)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .nav-links{display:flex;gap:34px;font-size:15px;color:var(--gray-2)}
+  .nav-links a{position:relative;transition:color .18s var(--ease-out)}
+  .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--gold);
+    transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease-out)}
+  .nav-links a:hover{color:var(--gold)}
+  @media(hover:hover) and (pointer:fine){.nav-links a:hover::after{transform:scaleX(1)}}
+  @media(max-width:860px){.nav-links{display:none}}
+  @media(max-width:430px){.logo .wm{font-size:18px}}
+
+  /* hero */
+  .hero{position:relative;padding:120px 0 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:680px;height:680px;border-radius:50%;top:-340px;right:-160px;
+    background:radial-gradient(circle,rgba(201,162,74,.16),transparent 62%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+  .hero h1{font-size:clamp(34px,4.6vw,58px);font-weight:600;line-height:1.08;letter-spacing:-.02em;margin:20px 0 22px}
+  .hero p.lead{font-size:18px;color:var(--gray-2);max-width:540px;margin-bottom:34px}
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;isolation:isolate}
+  /* glow giratorio lento detrás del monograma */
+  .hero-visual .rotor{position:absolute;z-index:0;width:120%;aspect-ratio:1/1;border-radius:50%;pointer-events:none;
+    background:conic-gradient(from 0deg,transparent 0deg,rgba(201,162,74,.20) 70deg,transparent 150deg,
+      transparent 232deg,rgba(200,204,210,.12) 300deg,transparent 360deg);
+    filter:blur(34px);animation:rotor 28s linear infinite}
+  .hero-visual::before{content:"";position:absolute;width:70%;height:70%;border-radius:50%;z-index:0;
+    background:radial-gradient(circle,rgba(201,162,74,.18),transparent 62%);filter:blur(26px);pointer-events:none}
+  /* circuito interno: los cables se encienden (corriente) y los nodos se iluminan */
+  .spark-layer{position:absolute;inset:0;z-index:4;pointer-events:none;mix-blend-mode:screen}
+  .wire{stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:wireon 3.6s ease-in-out infinite}
+  .cnodes circle{opacity:0;transform-box:fill-box;transform-origin:center;animation:nodepulse 3.6s ease-in-out infinite}
+  @keyframes wireon{
+    0%{stroke-dashoffset:1;opacity:0}
+    8%{opacity:1}
+    28%{stroke-dashoffset:0;opacity:1}
+    68%{stroke-dashoffset:0;opacity:1}
+    82%{opacity:0}
+    100%{stroke-dashoffset:0;opacity:0}
+  }
+  @keyframes nodepulse{
+    0%,22%{opacity:0;transform:scale(.3)}
+    38%{opacity:1;transform:scale(1)}
+    68%{opacity:.9;transform:scale(1)}
+    82%{opacity:0;transform:scale(1.25)}
+    100%{opacity:0}
+  }
+  /* tarjeta del monograma */
+  .hero-visual .card{position:relative;z-index:3;width:100%;max-width:520px;animation:float 7.5s var(--ease-in-out) infinite}
+  .hero-visual img{display:block;width:100%;height:auto;border-radius:24px;border:1px solid var(--line);
+    box-shadow:0 28px 64px rgba(0,0,0,.55);transition:border-color .4s var(--ease-out),box-shadow .4s var(--ease-out)}
+  @media(hover:hover) and (pointer:fine){.hero-visual:hover img{border-color:rgba(201,162,74,.42);box-shadow:0 34px 76px rgba(0,0,0,.6)}}
+  @keyframes rotor{to{transform:rotate(360deg)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+  /* metrics */
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:6px 0 4px}
+  @media(max-width:760px){.metrics{grid-template-columns:repeat(2,1fr)}}
+  .metric{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 22px 24px;text-align:center;
+    transition:transform .25s var(--ease-out),border-color .25s var(--ease-out),background .25s var(--ease-out)}
+  @media(hover:hover) and (pointer:fine){.metric:hover{border-color:rgba(201,162,74,.5);transform:translateY(-3px);background:var(--surface-2)}}
+  .metric .n{font-family:"Space Grotesk";font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.2;
+    background:linear-gradient(135deg,#E0C078,#C9A24A);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .metric .l{font-size:13px;color:var(--gray);margin-top:9px;line-height:1.45}
+
+  /* section heads */
+  .shead{max-width:620px;margin:0 auto 56px}
+  .shead.center{text-align:center}
+  .shead h2{font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-.02em;margin:14px 0 14px}
+  .shead p{color:var(--gray)}
+
+  /* services */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 26px;transition:.25s}
+  .card:hover{border-color:rgba(201,162,74,.5);transform:translateY(-3px);background:var(--surface-2)}
+  .card .ico{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+    background:rgba(201,162,74,.12);border:1px solid rgba(201,162,74,.3);margin-bottom:18px}
+  .card .ico svg{width:23px;height:23px;stroke:var(--gold);fill:none;stroke-width:1.7}
+  .card h3{font-size:19px;font-weight:600;margin-bottom:9px}
+  .card p{font-size:14.5px;color:var(--gray)}
+
+  /* security banner */
+  .secband{background:linear-gradient(120deg,#15171c,#101216);border:1px solid var(--line);border-radius:22px;
+    padding:54px 48px;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;position:relative;overflow:hidden}
+  .secband::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,162,74,.12),transparent 65%)}
+  .secband .shield{width:64px;height:64px;flex:0 0 auto}
+  .secband h2{font-size:28px;font-weight:600;margin-bottom:8px}
+  .secband p{color:var(--gray-2);max-width:640px}
+  @media(max-width:640px){.secband{grid-template-columns:1fr;padding:38px 28px}}
+
+  /* process */
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;counter-reset:s}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr);gap:26px}}
+  .step{position:relative;padding-top:14px}
+  .step .num{font-family:"Space Grotesk";font-size:14px;font-weight:700;color:var(--ink);background:var(--gold);
+    width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .step h3{font-size:17px;font-weight:600;margin-bottom:7px}
+  .step p{font-size:13.5px;color:var(--gray)}
+
+  /* CTA / contact */
+  .contact{background:radial-gradient(120% 120% at 50% 0%,#1b1f26,#0e0f12 70%);border:1px solid var(--line);border-radius:24px;
+    padding:64px 40px;text-align:center}
+  .contact h2{font-size:clamp(28px,3.6vw,42px);font-weight:600;letter-spacing:-.02em;margin-bottom:14px}
+  .contact p{color:var(--gray-2);max-width:520px;margin:0 auto 30px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:44px 0 38px;margin-top:90px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot .muted{font-size:13px}
+  .foot-links{display:flex;gap:22px;font-size:14px;color:var(--gray-2)}
+  .foot-links a:hover{color:var(--gold)}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+  .reveal.is-in{opacity:1;transform:none}
+  .reveal-group > *{opacity:0;transform:translateY(18px);transition:opacity .55s var(--ease-out),transform .55s var(--ease-out)}
+  .reveal-group.is-in > *{opacity:1;transform:none}
+  .reveal-group.is-in > :nth-child(1){transition-delay:0ms}
+  .reveal-group.is-in > :nth-child(2){transition-delay:60ms}
+  .reveal-group.is-in > :nth-child(3){transition-delay:120ms}
+  .reveal-group.is-in > :nth-child(4){transition-delay:180ms}
+  .reveal-group.is-in > :nth-child(5){transition-delay:240ms}
+  .reveal-group.is-in > :nth-child(6){transition-delay:300ms}
+
+  /* respeto a quien prefiere menos movimiento */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+      transition-duration:.01ms!important;scroll-behavior:auto!important}
+    .reveal,.reveal-group > *{opacity:1!important;transform:none!important}
+    .hero-visual .rotor,.hero-visual .card,.wire,.cnodes circle{animation:none!important}
+    .wires,.cnodes{opacity:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- shared SVG defs + symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="silver" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#fbfbfd"/><stop offset="0.35" stop-color="#c4c8ce"/>
+    <stop offset="0.6" stop-color="#7c818a"/><stop offset="0.83" stop-color="#bcc0c7"/><stop offset="1" stop-color="#eceef1"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0.1" y1="0" x2="0.9" y2="1.05">
+    <stop offset="0" stop-color="#f7e8ba"/><stop offset="0.33" stop-color="#dcbb66"/>
+    <stop offset="0.58" stop-color="#9c7a2e"/><stop offset="0.8" stop-color="#cda551"/><stop offset="1" stop-color="#f3dca0"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#fff8e2"/><stop offset="0.4" stop-color="#f2d488"/><stop offset="1" stop-color="#caa24c" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+  <symbol id="va" viewBox="0 0 360 320">
+    <g stroke="#aeb3ba" stroke-width="1.5" fill="#c7ccd2" opacity="0.85">
+      <path d="M206 200 L206 150 M206 164 L189 142 M206 160 L223 140 M206 150 L197 124 M206 150 L215 122" fill="none"/>
+      <circle cx="206" cy="150" r="3.6" fill="#e7c878"/>
+      <circle cx="189" cy="142" r="2.4"/><circle cx="223" cy="140" r="2.4"/>
+      <circle cx="197" cy="124" r="2.2"/><circle cx="215" cy="122" r="2.2"/><circle cx="206" cy="200" r="2.4"/>
+    </g>
+    <path d="M64 98 Q 72 122 100 174 L 130 232 Q 139 250 152 230 L 184 112" fill="none" stroke="url(#silver)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M166 234 L216 72 L272 210 Q 284 238 306 230" fill="none" stroke="url(#gold)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="216" cy="72" r="20" fill="url(#glow)" filter="url(#soft)"/>
+    <circle cx="216" cy="71" r="6.5" fill="#fff7e0"/><circle cx="216" cy="71" r="3" fill="#ffffff"/>
+  </symbol>
+</defs></svg>
+
+<!-- NAV -->
+<header class="nav"><div class="wrap nav-in">
+  <a class="logo" href="#top">
+    <svg class="sym"><use href="#va"/></svg>
+    <span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#servicios">Servicios</a><a href="#seguridad">Seguridad</a>
+    <a href="#proceso">Proceso</a><a href="#principios">Principios</a>
+  </nav>
+  <a class="btn btn-gold" href="#contacto">Hablemos</a>
+</div></header>
+
+<!-- HERO -->
+<section class="hero" id="top"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">Orquestación · Automatización · Agentes IA</span>
+    <h1>Tu operación,<br>orquestada con <span class="gold">IA</span> en la que confiar</h1>
+    <p class="lead">Conectamos tus sistemas, automatizamos los procesos que te frenan y desplegamos agentes de IA — con la fiabilidad, la trazabilidad y el control que tu empresa necesita.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="mailto:vaia@verisautomatia.com?subject=Contacto%20desde%20la%20web">Contacto</a>
+      <a class="btn btn-ghost" href="#proceso">Cómo trabajamos</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <span class="rotor" aria-hidden="true"></span>
+    <div class="card">
+      <img src="brand/logo-va/veris-va-hero.png" alt="Veris Automatia — monograma VA metálico, V en plata y A en oro" width="520" height="520">
+      <svg class="spark-layer" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none" aria-hidden="true">
+        <g class="wires" stroke="#ffe6ad" stroke-width="0.5" stroke-linecap="round"
+           style="filter:drop-shadow(0 0 .7px rgba(255,214,130,.95)) drop-shadow(0 0 1.6px rgba(255,196,90,.6))">
+          <path class="wire" pathLength="1" d="M53.5 41.8 L51.5 36.8"/>
+          <path class="wire" pathLength="1" d="M53.5 41.8 L55.5 38.3"/>
+          <path class="wire" pathLength="1" d="M53.5 41.8 L57 42.3"/>
+          <path class="wire" pathLength="1" d="M53.5 41.8 L53 46.3"/>
+          <path class="wire" pathLength="1" d="M53 46.3 L49.5 48.8"/>
+          <path class="wire" pathLength="1" d="M53 46.3 L54.5 48.8"/>
+          <path class="wire" pathLength="1" d="M53 46.3 L56.5 46.8"/>
+        </g>
+        <g class="cnodes" fill="#fff2d4" style="filter:drop-shadow(0 0 1px rgba(255,214,130,.95)) drop-shadow(0 0 2px rgba(255,196,90,.6))">
+          <circle cx="53.5" cy="41.8" r="0.9"/>
+          <circle cx="51.5" cy="36.8" r="0.7"/>
+          <circle cx="55.5" cy="38.3" r="0.7"/>
+          <circle cx="57" cy="42.3" r="0.6"/>
+          <circle cx="53" cy="46.3" r="0.6"/>
+          <circle cx="49.5" cy="48.8" r="0.6"/>
+          <circle cx="54.5" cy="48.8" r="0.6"/>
+          <circle cx="56.5" cy="46.8" r="0.6"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div></section>
+
+<!-- METRICS / PILARES -->
+<div class="wrap"><div class="metrics reveal-group">
+  <div class="metric"><div class="n">En tu red</div><div class="l">Los datos sensibles no salen de tu infraestructura</div></div>
+  <div class="metric"><div class="n">Trazable</div><div class="l">Cada automatización es auditable paso a paso</div></div>
+  <div class="metric"><div class="n">Reversible</div><div class="l">Sin lock-in: lo implantado se puede deshacer</div></div>
+  <div class="metric"><div class="n">Un solo socio</div><div class="l">De la auditoría al agente en producción</div></div>
+</div></div>
+
+<!-- SERVICES -->
+<section class="section" id="servicios"><div class="wrap">
+  <div class="shead center reveal">
+    <span class="eyebrow">Qué hacemos</span>
+    <h2>Lo que ponemos a trabajar por tu empresa</h2>
+    <p>De la primera auditoría al agente en producción: un único socio para todo el recorrido.</p>
+  </div>
+  <div class="cards reveal-group">
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+      <h3>Orquestación tecnológica</h3><p>Coordinamos tus herramientas y datos en un flujo único, sin islas ni trabajo duplicado.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></div>
+      <h3>Automatización de procesos</h3><p>Eliminamos las tareas repetitivas que consumen horas y generan errores.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M9 13h.01M15 13h.01"/></svg></div>
+      <h3>Agentes de IA</h3><p>Asistentes que entienden tu negocio, deciden y actúan dentro de límites que tú controlas.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 4-5"/></svg></div>
+      <h3>Diagnóstico & consultoría</h3><p>Mapeamos tus procesos y priorizamos dónde la automatización rinde de verdad.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 7l-4 5 4 5M16 7l4 5-4 5M13 5l-2 14"/></svg></div>
+      <h3>Integración de sistemas</h3><p>Conectamos ERP, CRM y el resto de tu stack para que hablen el mismo idioma.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Formación & soporte</h3><p>Tu equipo aprende a operar lo implantado, con acompañamiento continuo.</p></div>
+  </div>
+</div></section>
+
+<!-- SECURITY -->
+<section class="section" id="seguridad" style="padding-top:0"><div class="wrap">
+  <div class="secband reveal">
+    <svg class="shield" viewBox="0 0 24 24" fill="none" stroke="url(#gold)" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+    <div>
+      <span class="eyebrow">Veris = veracidad</span>
+      <h2 style="margin-top:10px">Tus datos no salen de tu red</h2>
+      <p>Diseñamos las soluciones para que la información sensible permanezca bajo tu control. Cada automatización es trazable, auditable y reversible: tecnología que puedes verificar, no en la que tienes que confiar a ciegas.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- PROCESS -->
+<section class="section" id="proceso" style="padding-top:0"><div class="wrap">
+  <div class="shead center reveal"><span class="eyebrow">Cómo trabajamos</span><h2>De la idea a producción, sin sobresaltos</h2></div>
+  <div class="steps reveal-group">
+    <div class="step"><div class="num">1</div><h3>Diagnóstico</h3><p>Entrevistas y mapa de procesos para detectar el mayor impacto.</p></div>
+    <div class="step"><div class="num">2</div><h3>Diseño del flujo</h3><p>Arquitectura de la solución, validada contigo antes de tocar nada.</p></div>
+    <div class="step"><div class="num">3</div><h3>Implementación</h3><p>Construimos, integramos y probamos en un entorno controlado.</p></div>
+    <div class="step"><div class="num">4</div><h3>Formación & traspaso</h3><p>Tu equipo toma el mando con documentación clara.</p></div>
+    <div class="step"><div class="num">5</div><h3>Soporte</h3><p>Monitorización y mejora continua una vez en marcha.</p></div>
+  </div>
+</div></section>
+
+<!-- PRINCIPIOS -->
+<section class="section" id="principios" style="padding-top:0"><div class="wrap">
+  <div class="shead center reveal"><span class="eyebrow">Por qué Veris</span><h2>Principios que no negociamos</h2>
+    <p>Veris es veracidad. La confianza no se pide: se demuestra en cada decisión técnica.</p></div>
+  <div class="cards reveal-group">
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Veracidad</h3><p>Tecnología que puedes verificar, no en la que tienes que confiar a ciegas. Sin cajas negras.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+      <h3>Control</h3><p>Tú mandas. Cada agente actúa dentro de límites que defines, y tus datos permanecen bajo tu control.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2"/><path d="M18 4v5h-5M6 20v-5h5"/></svg></div>
+      <h3>Continuidad</h3><p>No desaparecemos tras la entrega. Documentamos, formamos y acompañamos para que el sistema siga vivo.</p></div>
+  </div>
+</div></section>
+
+<!-- CONTACT -->
+<section class="section" id="contacto" style="padding-top:0"><div class="wrap">
+  <div class="contact reveal">
+    <span class="eyebrow">Hablemos</span>
+    <h2>¿Por dónde empezaría tu automatización?</h2>
+    <p>Cuéntanos tu operación y te decimos, sin compromiso, dónde la IA te haría ganar más.</p>
+    <a class="btn btn-gold" href="mailto:vaia@verisautomatia.com?subject=Contacto%20desde%20la%20web" style="font-size:16px;padding:15px 30px">Contacto</a>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap foot">
+  <a class="logo" href="#top"><svg class="sym"><use href="#va"/></svg><span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span></a>
+  <nav class="foot-links"><a href="#servicios">Servicios</a><a href="#seguridad">Seguridad</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></nav>
+  <span class="muted">© 2026 Veris Automatia</span>
+</div></footer>
+
+<script>
+(function(){
+  var nav = document.querySelector('header.nav');
+  function onScroll(){ if(nav) nav.toggleAttribute('data-scrolled', window.scrollY > 8); }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal, .reveal-group');
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(function(el){ el.classList.add('is-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+  targets.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
