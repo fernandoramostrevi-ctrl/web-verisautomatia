@@ -189,6 +189,20 @@
     padding:64px 40px;text-align:center}
   .contact h2{font-size:clamp(28px,3.6vw,42px);font-weight:600;letter-spacing:-.02em;margin-bottom:14px}
   .contact p{color:var(--gray-2);max-width:520px;margin:0 auto 30px}
+  .cform{max-width:520px;margin:0 auto;display:grid;gap:14px;text-align:left}
+  .cform label{font-size:13px;color:var(--gray-2);display:block;margin-bottom:6px}
+  .cform input,.cform textarea{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:12px 14px;color:var(--on-dark);font-family:inherit;font-size:15px;transition:border-color .2s var(--ease-out)}
+  .cform input:focus,.cform textarea:focus{outline:none;border-color:rgba(201,162,74,.55)}
+  .cform textarea{min-height:120px;resize:vertical}
+  .cform .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .cform .btn{justify-content:center}
+  .form-status{font-size:14px;min-height:20px;margin:0}
+  .form-status.ok{color:#9ed3a8}
+  .form-status.err{color:#e09a9a}
+  .contact .alt-mail{font-size:13px;color:var(--gray);margin:18px auto 0}
+  .contact .alt-mail a{color:var(--gray-2);text-decoration:underline}
+  @media(hover:hover) and (pointer:fine){.contact .alt-mail a:hover{color:var(--gold)}}
 
   /* footer */
   footer{border-top:1px solid var(--line);padding:44px 0 38px;margin-top:90px}
@@ -269,7 +283,7 @@
     <h1>Tu operación,<br>orquestada con <span class="gold">IA</span> en la que confiar</h1>
     <p class="lead">Conectamos tus sistemas, automatizamos los procesos que te frenan y desplegamos agentes de IA — con la fiabilidad, la trazabilidad y el control que tu empresa necesita.</p>
     <div class="cta-row">
-      <a class="btn btn-gold" href="mailto:vaia@verisautomatia.com?subject=Contacto%20desde%20la%20web">Contacto</a>
+      <a class="btn btn-gold" href="#contacto">Contacto</a>
       <a class="btn btn-ghost" href="#proceso">Cómo trabajamos</a>
     </div>
   </div>
@@ -431,7 +445,27 @@
     <span class="eyebrow">Hablemos</span>
     <h2>¿Por dónde empezaría tu automatización?</h2>
     <p>Cuéntanos tu operación y te decimos, sin compromiso, dónde la IA te haría ganar más.</p>
-    <a class="btn btn-gold" href="mailto:vaia@verisautomatia.com?subject=Contacto%20desde%20la%20web" style="font-size:16px;padding:15px 30px">Contacto</a>
+    <form class="cform" id="contact-form" novalidate>
+      <div>
+        <label for="cf-name">Nombre</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="120" required>
+      </div>
+      <div>
+        <label for="cf-email">Email</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+      </div>
+      <div>
+        <label for="cf-message">¿Qué te gustaría automatizar?</label>
+        <textarea id="cf-message" name="message" maxlength="4000" required></textarea>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="cf-web">Web</label>
+        <input id="cf-web" name="web" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <button class="btn btn-gold" type="submit" style="font-size:16px;padding:15px 30px">Enviar mensaje</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="alt-mail">O si lo prefieres, escríbenos directamente a <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a></p>
   </div>
 </div></section>
 
@@ -461,6 +495,43 @@
     });
   }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
   targets.forEach(function(el){ io.observe(el); });
+})();
+
+(function(){
+  var form = document.getElementById('contact-form');
+  if(!form) return;
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var st = form.querySelector('.form-status');
+    var btn = form.querySelector('button[type="submit"]');
+    var data = {
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+      message: form.elements.message.value,
+      web: form.elements.web.value
+    };
+    btn.disabled = true;
+    st.className = 'form-status';
+    st.textContent = 'Enviando…';
+    fetch('https://n8n.frautomatia.com/webhook/contacto-verisautomatia', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    }).then(function(r){ return r.json().catch(function(){ return {ok:false}; }); })
+    .then(function(j){
+      if(j.ok){
+        st.className = 'form-status ok';
+        st.textContent = 'Mensaje enviado. Te responderemos muy pronto.';
+        form.reset();
+      } else {
+        st.className = 'form-status err';
+        st.textContent = 'Revisa los campos: nombre, un email válido y un mensaje de al menos 10 caracteres.';
+      }
+    }).catch(function(){
+      st.className = 'form-status err';
+      st.textContent = 'No se pudo enviar. Escríbenos a vaia@verisautomatia.com';
+    }).then(function(){ btn.disabled = false; });
+  });
 })();
 </script>
 
