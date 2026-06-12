@@ -184,6 +184,35 @@
   .step h3{font-size:17px;font-weight:600;margin-bottom:7px}
   .step p{font-size:13.5px;color:var(--gray)}
 
+  /* radiografia (oferta de entrada — espejo del PDF de prospección) */
+  .radio-band{background:linear-gradient(120deg,#17191e,#101216);border:1px solid rgba(201,162,74,.32);border-radius:22px;
+    padding:54px 48px;display:grid;grid-template-columns:1.3fr .7fr;gap:46px;align-items:start;position:relative;overflow:hidden}
+  .radio-band::after{content:"";position:absolute;left:-100px;bottom:-140px;width:360px;height:360px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,162,74,.10),transparent 65%);pointer-events:none}
+  .radio-band h2{font-size:clamp(26px,3.2vw,36px);font-weight:600;letter-spacing:-.02em;margin:12px 0 12px}
+  .radio-band .promise{color:var(--gray-2);max-width:560px;margin-bottom:28px}
+  .radio-steps{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px;margin-bottom:26px}
+  .radio-steps .rs{display:flex;gap:13px}
+  .radio-steps .rnum{flex:0 0 auto;font-family:"Space Grotesk";font-size:13px;font-weight:700;color:var(--ink);background:var(--gold);
+    width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .radio-steps h3{font-size:15.5px;font-weight:600;margin-bottom:3px}
+  .radio-steps p{font-size:13.5px;color:var(--gray)}
+  .radio-deliver{font-size:14px;color:var(--gray-2);border-top:1px solid var(--line);padding-top:18px}
+  .radio-who{font-size:14px;color:var(--gray);margin-top:14px}
+  .radio-who strong{color:var(--gold);font-weight:600}
+  .radio-offer{position:relative;z-index:1;background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:30px 28px;display:flex;flex-direction:column;gap:13px}
+  .radio-offer .ro-label{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .radio-offer .ro-price{font-family:"Space Grotesk";display:flex;align-items:baseline;gap:6px 12px;flex-wrap:wrap}
+  .radio-offer .ro-price s{color:var(--gray);font-size:19px;font-weight:500}
+  .radio-offer .ro-now{font-size:38px;font-weight:600;letter-spacing:-.01em;
+    background:linear-gradient(135deg,#E0C078,#C9A24A);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .radio-offer .ro-note{font-size:13px;color:var(--gray)}
+  .radio-offer .ro-pay{font-size:14px;color:var(--gray-2);border-top:1px solid var(--line);padding-top:13px}
+  .radio-offer .btn{justify-content:center;margin-top:4px}
+  .radio-offer .ro-free{font-size:12.5px;color:var(--gray)}
+  @media(max-width:900px){.radio-band{grid-template-columns:1fr;padding:40px 30px;gap:34px}.radio-steps{grid-template-columns:1fr}}
+
   /* CTA / contact */
   .contact{background:radial-gradient(120% 120% at 50% 0%,#1b1f26,#0e0f12 70%);border:1px solid var(--line);border-radius:24px;
     padding:64px 40px;text-align:center}
@@ -271,7 +300,7 @@
   </a>
   <nav class="nav-links">
     <a href="#servicios">Servicios</a><a href="#seguridad">Seguridad</a>
-    <a href="#proceso">Proceso</a><a href="#principios">Principios</a>
+    <a href="#proceso">Proceso</a><a href="#radiografia">Radiografía</a><a href="#principios">Principios</a>
   </nav>
   <a class="btn btn-gold" href="#contacto">Hablemos</a>
 </div></header>
@@ -425,6 +454,33 @@
   </div>
 </div></section>
 
+<!-- RADIOGRAFIA OPERATIVA -->
+<section class="section" id="radiografia" style="padding-top:0"><div class="wrap">
+  <div class="radio-band reveal">
+    <div>
+      <span class="eyebrow">Por dónde empezar</span>
+      <h2>Radiografía Operativa</h2>
+      <p class="promise">En 2 semanas: el mapa completo de tu empresa, dónde se escapa el dinero y un plan priorizado para recuperarlo — sin interrumpir el trabajo de tu equipo.</p>
+      <div class="radio-steps">
+        <div class="rs"><div class="rnum">1</div><div><h3>Cuestionario estructurado</h3><p>Cada departamento responde un cuestionario diseñado para detectar fricciones.</p></div></div>
+        <div class="rs"><div class="rnum">2</div><div><h3>Entrevistas individuales</h3><p>De tú a tú con cada responsable de área: qué hace, cómo y dónde pierde el tiempo.</p></div></div>
+        <div class="rs"><div class="rnum">3</div><div><h3>Análisis</h3><p>Puntos críticos y oportunidades, documentados y priorizados por impacto.</p></div></div>
+        <div class="rs"><div class="rnum">4</div><div><h3>Roadmap y presentación</h3><p>El plan de automatización, explicado en persona a dirección.</p></div></div>
+      </div>
+      <p class="radio-deliver">Te llevas: informe de diagnóstico, mapa de tu operativa actual, análisis de riesgos, roadmap visual priorizado y presentación ejecutiva — un plan que puedes ejecutar con nosotros o con quien tú decidas.</p>
+      <p class="radio-who"><strong>Quién está detrás.</strong> «Soy Fernando Ramos. Diseño y ejecuto cada proyecto personalmente: entrevistas de tú a tú, nada avanza sin tu validación y tus datos no salen del proyecto.»</p>
+    </div>
+    <aside class="radio-offer">
+      <span class="ro-label">Precio cerrado</span>
+      <div class="ro-price"><s>2.500&nbsp;€</s><span class="ro-now">2.000&nbsp;€</span></div>
+      <p class="ro-note">Precio de lanzamiento para los próximos 3 clientes.</p>
+      <p class="ro-pay">Si la Radiografía detecta una sola fuga — un trabajo sin facturar, un cobro olvidado — se ha pagado sola.</p>
+      <a class="btn btn-gold" href="#contacto">Pide tu Radiografía</a>
+      <p class="ro-free">Sin compromiso: en una llamada de 30 minutos ya te llevas una primera lectura de tu situación.</p>
+    </aside>
+  </div>
+</div></section>
+
 <!-- PRINCIPIOS -->
 <section class="section" id="principios" style="padding-top:0"><div class="wrap">
   <div class="shead center reveal"><span class="eyebrow">Por qué Veris</span><h2>Principios que no negociamos</h2>
@@ -472,7 +528,7 @@
 <!-- FOOTER -->
 <footer><div class="wrap foot">
   <a class="logo" href="#top"><svg class="sym"><use href="#va"/></svg><span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span></a>
-  <nav class="foot-links"><a href="#servicios">Servicios</a><a href="#seguridad">Seguridad</a><a href="#proceso">Proceso</a><a href="#contacto">Contacto</a></nav>
+  <nav class="foot-links"><a href="#servicios">Servicios</a><a href="#seguridad">Seguridad</a><a href="#radiografia">Radiografía</a><a href="#contacto">Contacto</a></nav>
   <span class="muted">© 2026 Veris Automatia</span>
 </div></footer>
 
