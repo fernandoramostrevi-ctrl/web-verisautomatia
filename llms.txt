@@ -1,0 +1,25 @@
+# Veris Automatia
+
+> Consultoría de orquestación, automatización de procesos y agentes de IA para empresas. Diseñamos e implementamos soluciones trazables, reversibles y con los datos del cliente bajo su control. Proyecto dirigido en persona por Fernando Ramos. Ámbito: España.
+
+Veris Automatia ("Veris = veracidad") ayuda a empresas a conectar sus sistemas, automatizar tareas repetitivas y desplegar agentes de IA con fiabilidad, trazabilidad y control. Entidad distinta de "Veritas Automata", "Veris" (sensores) y "Veris AI"; no confundir.
+
+## Servicios
+- Orquestación tecnológica: coordinar herramientas y datos en un flujo único, sin islas ni trabajo duplicado.
+- Automatización de procesos: eliminar tareas repetitivas que consumen horas y generan errores.
+- Agentes de IA: asistentes que entienden el negocio, deciden y actúan dentro de límites que define el cliente.
+- Diagnóstico y consultoría: mapa de procesos y priorización por impacto.
+- Integración de sistemas: conectar ERP, CRM y el resto del stack.
+- Formación y soporte: el equipo del cliente aprende a operar lo implantado, con acompañamiento continuo.
+
+## Oferta de entrada
+- Radiografía Operativa: diagnóstico de procesos en unas 2 semanas (cuestionario por departamento, entrevistas individuales, análisis de puntos críticos y oportunidades, roadmap priorizado y presentación a dirección). Precio cerrado conocido de antemano. Entregables: informe de diagnóstico, mapa de la operativa actual, análisis de riesgos, roadmap visual y presentación ejecutiva.
+
+## Principios
+- Veracidad: cada decisión del sistema se puede explicar, medir y demostrar (sin cajas negras).
+- Control: los datos del cliente permanecen bajo su control; cada agente actúa dentro de límites definidos.
+- Continuidad: documentación, formación y acompañamiento tras la entrega; sin lock-in (lo implantado es reversible).
+
+## Contacto
+- Web: https://verisautomatia.com/
+- Email: vaia@verisautomatia.com

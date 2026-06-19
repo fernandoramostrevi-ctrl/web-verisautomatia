@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,follow">
+<title>Política de Privacidad — Veris Automatia</title>
+<meta name="description" content="Política de privacidad de Veris Automatia: qué datos tratamos, con qué finalidad y base jurídica, durante cuánto tiempo y cómo ejercer tus derechos conforme al RGPD y la LOPDGDD.">
+<link rel="canonical" href="https://verisautomatia.com/privacidad.html">
+<meta name="theme-color" content="#0E0F12">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/logo-va/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="brand/logo-va/favicon-192.png">
+<link rel="apple-touch-icon" href="brand/logo-va/apple-touch-icon.png">
+<link rel="preload" href="fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Tipografias autoalojadas (sin conexion a Google Fonts) */
+  @font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/outfit.woff2') format('woff2');}
+  @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url('fonts/space-grotesk.woff2') format('woff2');}
+  :root{
+    --ink:#0E0F12; --surface:#16181C; --surface-2:#1C1F25; --line:#282C33;
+    --gold:#C9A24A; --gold-soft:#E0C078; --silver:#C8CCD2; --gray:#8A909A;
+    --gray-2:#B6BBC3; --on-dark:#ECEDEF;
+    --ease-out:cubic-bezier(.23,1,.32,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--on-dark);font-family:"Outfit",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+  h1,h2,h3,.dgrotesk{font-family:"Space Grotesk",sans-serif}
+  a{color:var(--gold);text-decoration:none;transition:color .18s var(--ease-out)}
+  a:hover{color:var(--gold-soft);text-decoration:underline}
+
+  /* logo */
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .sym{width:34px;height:32px}
+  .logo .wm{font-weight:300;letter-spacing:.04em;font-size:21px;color:var(--on-dark)}
+  .logo .wm .ia{color:var(--gold);font-weight:400}
+  .logo:hover{text-decoration:none}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(14,15,18,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .wrap-nav{max-width:1140px;margin:0 auto;padding:0 28px}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:18px}
+  .nav-back{font-size:15px;color:var(--gray-2)}
+  .nav-back:hover{color:var(--gold)}
+
+  /* document */
+  main{max-width:760px;margin:0 auto;padding:56px 28px 24px}
+  .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  h1{font-size:clamp(30px,4.6vw,44px);font-weight:600;letter-spacing:-.02em;line-height:1.12;margin:14px 0 16px}
+  .updated{font-size:14px;color:var(--gray);margin-bottom:8px}
+  .lead{font-size:17px;color:var(--gray-2);margin-bottom:14px}
+
+  h2{font-size:clamp(21px,2.6vw,26px);font-weight:600;letter-spacing:-.01em;margin:44px 0 14px;padding-top:8px}
+  h3{font-size:17px;font-weight:600;margin:24px 0 8px;color:var(--on-dark)}
+  p{margin:0 0 14px;color:var(--gray-2)}
+  ul,ol{margin:0 0 16px;padding-left:22px;color:var(--gray-2)}
+  li{margin-bottom:8px}
+  li::marker{color:var(--gold)}
+  strong{color:var(--on-dark);font-weight:600}
+  hr{border:0;border-top:1px solid var(--line);margin:40px 0}
+
+  .toc{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin:28px 0 8px}
+  .toc h2{margin:0 0 12px;padding:0;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-2)}
+  .toc ol{margin:0;padding-left:20px}
+  .toc li{margin-bottom:6px}
+  .toc a{color:var(--gray-2)}
+  .toc a:hover{color:var(--gold)}
+
+  /* data card */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin:0 0 16px}
+  .card dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0}
+  .card dt{font-weight:600;color:var(--on-dark)}
+  .card dd{margin:0;color:var(--gray-2)}
+  @media(max-width:520px){.card dl{grid-template-columns:1fr;gap:4px 0}.card dd{margin:0 0 8px}}
+
+  table{width:100%;border-collapse:collapse;margin:0 0 18px;font-size:14.5px}
+  th,td{text-align:left;padding:11px 14px;border:1px solid var(--line);vertical-align:top;color:var(--gray-2)}
+  th{background:var(--surface);color:var(--on-dark);font-weight:600;font-family:"Space Grotesk",sans-serif}
+  tr:nth-child(even) td{background:rgba(255,255,255,.012)}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:44px 0 38px;margin-top:60px}
+  .wrap-foot{max-width:1140px;margin:0 auto;padding:0 28px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot .muted{font-size:13px;color:var(--gray)}
+  .foot-links{display:flex;gap:22px;font-size:14px}
+  .foot-links a{color:var(--gray-2)}
+  .foot-links a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- shared SVG symbol (logo) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="silver" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#fbfbfd"/><stop offset="0.35" stop-color="#c4c8ce"/>
+    <stop offset="0.6" stop-color="#7c818a"/><stop offset="0.83" stop-color="#bcc0c7"/><stop offset="1" stop-color="#eceef1"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0.1" y1="0" x2="0.9" y2="1.05">
+    <stop offset="0" stop-color="#f7e8ba"/><stop offset="0.33" stop-color="#dcbb66"/>
+    <stop offset="0.58" stop-color="#9c7a2e"/><stop offset="0.8" stop-color="#cda551"/><stop offset="1" stop-color="#f3dca0"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#fff8e2"/><stop offset="0.4" stop-color="#f2d488"/><stop offset="1" stop-color="#caa24c" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+  <symbol id="va" viewBox="14 12 72 84">
+    <path d="M24 86 L50 22 L76 86" fill="none" stroke="#F4F2EC" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M37 60 L48 71 L72 41" fill="none" stroke="#C9A24A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</defs></svg>
+
+<!-- NAV -->
+<header class="nav"><div class="wrap-nav nav-in">
+  <a class="logo" href="index.html" aria-label="Veris Automatia — inicio">
+    <svg class="sym"><use href="#va"/></svg>
+    <span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span>
+  </a>
+  <a class="nav-back" href="index.html">&larr; Volver al inicio</a>
+</div></header>
+
+<!-- DOCUMENTO -->
+<main>
+  <span class="eyebrow">Información legal</span>
+  <h1>Política de Privacidad</h1>
+  <p class="updated">Última actualización: 19 de junio de 2026</p>
+  <p class="lead">En Veris Automatia tratamos tus datos personales con la misma exigencia que aplicamos a la tecnología que diseñamos: con transparencia, control y trazabilidad. Esta política explica qué datos recogemos a través de este sitio web, con qué finalidad y base jurídica, durante cuánto tiempo los conservamos y cómo puedes ejercer tus derechos.</p>
+
+  <!-- ÍNDICE -->
+  <nav class="toc" aria-label="Índice de contenidos">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#responsable">Responsable del tratamiento</a></li>
+      <li><a href="#datos">Qué datos recogemos</a></li>
+      <li><a href="#finalidad">Finalidad y base jurídica</a></li>
+      <li><a href="#conservacion">Plazo de conservación</a></li>
+      <li><a href="#destinatarios">Destinatarios y encargados del tratamiento</a></li>
+      <li><a href="#transferencias">Transferencias internacionales de datos</a></li>
+      <li><a href="#derechos">Tus derechos</a></li>
+      <li><a href="#reclamacion">Reclamación ante la autoridad de control</a></li>
+      <li><a href="#seguridad">Seguridad de los datos</a></li>
+      <li><a href="#cookies">Cookies y tipografías</a></li>
+      <li><a href="#menores">Menores de edad</a></li>
+      <li><a href="#cambios">Cambios en esta política</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <h2 id="responsable">1. Responsable del tratamiento</h2>
+  <p>El responsable del tratamiento de tus datos personales es:</p>
+  <div class="card">
+    <dl>
+      <dt>Titular</dt>
+      <dd>Fernando Ramos Treviño (persona física, profesional independiente), operando bajo la marca <strong>Veris Automatia</strong>.</dd>
+      <dt>NIF / CIF</dt>
+      <dd>No aplicable por el momento; se incorporará al formalizar el alta de la actividad.</dd>
+      <dt>Ámbito</dt>
+      <dd>Madrid (España)</dd>
+      <dt>Sitio web</dt>
+      <dd><a href="https://verisautomatia.com">https://verisautomatia.com</a></dd>
+      <dt>Correo de contacto</dt>
+      <dd><a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a></dd>
+    </dl>
+  </div>
+  <p>Para cualquier cuestión relacionada con el tratamiento de tus datos personales o con esta política de privacidad, puedes contactar con nosotros en <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a>.</p>
+
+  <!-- 2 -->
+  <h2 id="datos">2. Qué datos recogemos</h2>
+  <p>Solo tratamos los datos que tú nos facilitas voluntariamente a través del <strong>formulario de contacto</strong> de este sitio web. En concreto:</p>
+  <ul>
+    <li><strong>Nombre</strong> que indicas en el formulario.</li>
+    <li><strong>Dirección de correo electrónico</strong>.</li>
+    <li><strong>Mensaje</strong> o consulta que escribes en el campo de texto, así como cualquier dato personal que decidas incluir libremente en él.</li>
+  </ul>
+  <p>No recogemos categorías especiales de datos (los llamados «datos sensibles» del artículo 9 del RGPD). Te pedimos que no incluyas ese tipo de información en el mensaje. Tampoco disponemos de una base de datos de marketing ni de un servicio de boletín o <em>newsletter</em>.</p>
+
+  <!-- 3 -->
+  <h2 id="finalidad">3. Finalidad y base jurídica</h2>
+  <p>Tratamos tus datos con las siguientes finalidades y sobre las siguientes bases jurídicas, conforme al artículo 6 del RGPD:</p>
+  <table>
+    <thead>
+      <tr><th>Finalidad</th><th>Base jurídica</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Atender tu solicitud de contacto, responder a tu consulta y poner en marcha, en su caso, la relación comercial que solicites.</td>
+        <td>Tu <strong>consentimiento</strong>, que prestas al marcar la casilla de aceptación y enviar el formulario — artículo 6.1.a) del RGPD.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>El suministro de estos datos es voluntario, pero necesario para que podamos responderte: si no nos facilitas el nombre, el correo y el mensaje, no podremos atender tu solicitud.</p>
+
+  <!-- 4 -->
+  <h2 id="conservacion">4. Plazo de conservación</h2>
+  <p>Los datos se conservan durante el tiempo necesario para atender tu solicitud y gestionar la relación que pueda derivarse. Si la consulta no da lugar a una relación, se eliminan en un plazo máximo de 12 meses, salvo obligación legal de conservación.</p>
+  <p>Cuando los datos dejen de ser necesarios para la finalidad que motivó su recogida, los suprimiremos de forma segura. Puedes retirar tu consentimiento en cualquier momento escribiendo a <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a>.</p>
+
+  <!-- 5 -->
+  <h2 id="destinatarios">5. Destinatarios y encargados del tratamiento</h2>
+  <p>No vendemos, alquilamos ni cedemos tus datos a terceros con fines comerciales. Para prestar el servicio de este sitio web nos apoyamos en los siguientes proveedores, que actúan como <strong>encargados del tratamiento</strong> y tratan los datos únicamente siguiendo nuestras instrucciones:</p>
+  <ul>
+    <li><strong>Alojamiento del sitio web — GitHub Pages (GitHub, Inc.).</strong> El sitio es estático y está alojado en la plataforma GitHub Pages, propiedad de GitHub, Inc. (Estados Unidos). El alojamiento sirve las páginas a tu navegador; el formulario en sí no se almacena en esta plataforma.</li>
+    <li><strong>Procesamiento del formulario de contacto — instancia propia de n8n.</strong> Cuando envías el formulario, los datos (nombre, correo y mensaje) se transmiten mediante una petición a un servicio de automatización <em>n8n</em> autoalojado en infraestructura propia del responsable, que procesa el envío y lo hace llegar por correo electrónico al responsable para poder atender tu consulta.</li>
+  </ul>
+  <p>Además de lo anterior, podremos comunicar tus datos a las administraciones públicas, jueces y tribunales cuando exista una obligación legal que así lo exija.</p>
+
+  <!-- 6 -->
+  <h2 id="transferencias">6. Transferencias internacionales de datos</h2>
+  <p>El alojamiento del sitio se realiza a través de <strong>GitHub Pages (GitHub, Inc.)</strong>, proveedor con sede en <strong>Estados Unidos</strong>. En la medida en que la prestación de este servicio implique un acceso a datos personales (como la dirección IP del visitante) desde fuera del Espacio Económico Europeo, dicho tratamiento constituye una <strong>transferencia internacional de datos</strong>.</p>
+  <p>Esta transferencia se ampara en las garantías adecuadas previstas en el RGPD: la adhesión de este proveedor al marco de adecuación <strong>EU-US Data Privacy Framework</strong> y/o la suscripción de las <strong>Cláusulas Contractuales Tipo</strong> de la Comisión Europea. Puedes consultar más información en la <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">política de privacidad de GitHub</a>.</p>
+  <p>El procesamiento del formulario de contacto se realiza a través de una instancia de <em>n8n</em> autoalojada en infraestructura propia del responsable: al enviar el formulario, los datos se remiten por correo electrónico al responsable a través de dicha instancia. Cuando esté confirmado que esa infraestructura se ubica íntegramente dentro del Espacio Económico Europeo, este tratamiento no implicará transferencia internacional alguna.</p>
+
+  <!-- 7 -->
+  <h2 id="derechos">7. Tus derechos</h2>
+  <p>Como titular de los datos, la normativa de protección de datos te reconoce los siguientes derechos:</p>
+  <ul>
+    <li><strong>Acceso:</strong> conocer qué datos personales tuyos estamos tratando.</li>
+    <li><strong>Rectificación:</strong> corregir los datos inexactos o incompletos.</li>
+    <li><strong>Supresión:</strong> solicitar que eliminemos tus datos cuando, entre otros motivos, ya no sean necesarios para la finalidad para la que se recogieron.</li>
+    <li><strong>Oposición:</strong> oponerte a que tratemos tus datos por motivos relacionados con tu situación particular.</li>
+    <li><strong>Limitación del tratamiento:</strong> solicitar que limitemos el tratamiento de tus datos en los supuestos previstos por la normativa.</li>
+    <li><strong>Portabilidad:</strong> recibir tus datos en un formato estructurado, de uso común y lectura mecánica, o solicitar que los transmitamos a otro responsable.</li>
+    <li><strong>Retirar el consentimiento:</strong> en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</li>
+  </ul>
+  <p>Puedes ejercer estos derechos de forma gratuita escribiendo a <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a>, indicando el derecho que deseas ejercer. Podremos solicitarte que acredites tu identidad para garantizar que solo tú accedes a tus datos. Atenderemos tu solicitud dentro de los plazos previstos por el RGPD (con carácter general, un mes desde la recepción, ampliable según la complejidad).</p>
+
+  <!-- 8 -->
+  <h2 id="reclamacion">8. Reclamación ante la autoridad de control</h2>
+  <p>Si consideras que el tratamiento de tus datos no se ajusta a la normativa, o que no hemos atendido correctamente el ejercicio de tus derechos, tienes derecho a presentar una reclamación ante la autoridad de control competente en España, la <strong>Agencia Española de Protección de Datos (AEPD)</strong>, a través de su sede electrónica en <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
+
+  <!-- 9 -->
+  <h2 id="seguridad">9. Seguridad de los datos</h2>
+  <p>Aplicamos medidas técnicas y organizativas razonables para proteger tus datos frente a la pérdida, el uso indebido y el acceso no autorizado, atendiendo al estado de la técnica y a los riesgos del tratamiento. La transmisión del formulario se realiza mediante conexión cifrada (HTTPS).</p>
+
+  <!-- 10 -->
+  <h2 id="cookies">10. Cookies y tipografías</h2>
+  <p><strong>Actualmente este sitio web no utiliza cookies de analítica ni de seguimiento de terceros.</strong> No empleamos herramientas como Google Analytics, Google Tag Manager ni píxeles de redes sociales, y no instalamos cookies con fines publicitarios o de elaboración de perfiles.</p>
+  <p>Las tipografías web del sitio se sirven <strong>desde el propio dominio</strong> (están autoalojadas). Por tanto, el sitio <strong>no realiza peticiones a servidores de terceros para cargarlas</strong> y <strong>no se envía la dirección IP del visitante a Google</strong> ni a ningún otro proveedor externo con ese fin. Salvo el envío del formulario cuando tú decides hacerlo, el sitio no realiza otras peticiones a servicios externos de terceros.</p>
+  <p>Si en el futuro se instalara analítica o cualquier cookie no estrictamente necesaria, se añadiría aquí la información detallada de cada cookie (nombre, finalidad, titular y duración), se implementaría un banner de consentimiento previo conforme a la LSSI-CE y al RGPD y se publicaría una política de cookies específica.</p>
+
+  <!-- 11 -->
+  <h2 id="menores">11. Menores de edad</h2>
+  <p>Este sitio web y sus servicios están dirigidos a empresas y profesionales. No están destinados a menores de edad y no recogemos datos de menores de forma consciente. Si crees que un menor nos ha facilitado datos personales, contáctanos en <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a> y los suprimiremos.</p>
+
+  <!-- 12 -->
+  <h2 id="cambios">12. Cambios en esta política</h2>
+  <p>Podemos actualizar esta política de privacidad para adaptarla a cambios normativos, técnicos o en la forma en que tratamos los datos. La versión vigente será siempre la publicada en esta página, con su fecha de última actualización indicada al inicio. Te recomendamos revisarla periódicamente.</p>
+
+  <hr>
+  <p style="font-size:14px;color:var(--gray)">Esta política se rige por el Reglamento (UE) 2016/679 (RGPD), la Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD) y la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE).</p>
+</main>
+
+<!-- FOOTER -->
+<footer><div class="wrap-foot foot">
+  <a class="logo" href="index.html"><svg class="sym"><use href="#va"/></svg><span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span></a>
+  <nav class="foot-links"><a href="index.html">Inicio</a><a href="privacidad.html">Privacidad</a><a href="aviso-legal.html">Aviso legal</a></nav>
+  <span class="muted">&copy; 2026 Veris Automatia</span>
+</div></footer>
+
+</body>
+</html>

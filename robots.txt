@@ -1,0 +1,33 @@
+# robots.txt — verisautomatia.com
+# Rastreo abierto. Declaramos explícitamente permiso a los bots de los
+# buscadores de IA para poder ser citados en sus respuestas (AEO/GEO).
+
+User-agent: *
+Allow: /
+
+# Buscadores / asistentes de IA
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://verisautomatia.com/sitemap.xml

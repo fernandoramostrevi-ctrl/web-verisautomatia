@@ -23,10 +23,12 @@
 <link rel="icon" type="image/png" sizes="32x32" href="brand/logo-va/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="brand/logo-va/favicon-192.png">
 <link rel="apple-touch-icon" href="brand/logo-va/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* Tipografías autoalojadas (sin conexión a Google Fonts) */
+  @font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/outfit.woff2') format('woff2');}
+  @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url('fonts/space-grotesk.woff2') format('woff2');}
   :root{
     --ink:#0E0F12; --surface:#16181C; --surface-2:#1C1F25; --line:#282C33;
     --gold:#C9A24A; --gold-soft:#E0C078; --silver:#C8CCD2; --gray:#8A909A;
@@ -258,7 +260,76 @@
     .hero-visual .rotor,.hero-visual .card,.cs,.nf{animation:none!important}
     .csparks,.cflashes{opacity:0}
   }
+
+  /* formulario — errores inline, consentimiento y nota */
+  .cform .field-err{font-size:12.5px;color:#e09a9a;margin-top:5px}
+  .cform input[aria-invalid="true"],.cform textarea[aria-invalid="true"]{border-color:#e09a9a}
+  .cform .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray-2);cursor:pointer;text-align:left}
+  .cform .consent input{width:auto;margin-top:3px;flex:0 0 auto}
+  .cform .consent a{color:var(--gold);text-decoration:underline}
+  .cform .form-note{font-size:12.5px;color:var(--gray);margin-top:2px}
 </style>
+
+<!-- Datos estructurados (JSON-LD). sameAs enlaza el LinkedIn de empresa (Organization)
+     y el de Fernando (Person) para anclar la entidad y diferenciarla de "Veritas Automata" / "Veris". -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://verisautomatia.com/#org",
+      "name": "Veris Automatia",
+      "alternateName": "Veris AutomatIA",
+      "url": "https://verisautomatia.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://verisautomatia.com/brand/logo-va/favicon-192.png",
+        "width": 192,
+        "height": 192
+      },
+      "image": "https://verisautomatia.com/brand/logo-va/og-image.jpg",
+      "description": "Consultoría de orquestación, automatización de procesos y agentes de IA para empresas. Soluciones trazables, reversibles y con los datos del cliente bajo su control.",
+      "slogan": "Veris es veracidad",
+      "email": "vaia@verisautomatia.com",
+      "founder": { "@id": "https://verisautomatia.com/#fernando" },
+      "areaServed": { "@type": "Country", "name": "España" },
+      "knowsAbout": [
+        "Automatización de procesos",
+        "Agentes de IA",
+        "Orquestación de sistemas",
+        "Integración de ERP y CRM",
+        "Consultoría de inteligencia artificial",
+        "n8n"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "vaia@verisautomatia.com",
+        "contactType": "sales",
+        "availableLanguage": ["Spanish"]
+      },
+      "sameAs": ["https://www.linkedin.com/company/veris-automatia/"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://verisautomatia.com/#fernando",
+      "name": "Fernando Ramos",
+      "jobTitle": "Fundador y consultor de automatización e IA",
+      "worksFor": { "@id": "https://verisautomatia.com/#org" },
+      "description": "Diseña la automatización de procesos operativos (facturación, pedidos, gestión documental y traspaso de datos entre sistemas) de extremo a extremo: primero diagnostica cómo fluye el trabajo y dónde se atasca, valida la solución técnicamente y especifica cómo deben comunicarse los sistemas antes de construir nada.",
+      "sameAs": ["https://www.linkedin.com/in/fernando-r-trevino/"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://verisautomatia.com/#website",
+      "url": "https://verisautomatia.com/",
+      "name": "Veris Automatia",
+      "inLanguage": "es-ES",
+      "publisher": { "@id": "https://verisautomatia.com/#org" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -276,17 +347,9 @@
     <stop offset="0" stop-color="#fff8e2"/><stop offset="0.4" stop-color="#f2d488"/><stop offset="1" stop-color="#caa24c" stop-opacity="0"/>
   </radialGradient>
   <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
-  <symbol id="va" viewBox="0 0 360 320">
-    <g stroke="#aeb3ba" stroke-width="1.5" fill="#c7ccd2" opacity="0.85">
-      <path d="M206 200 L206 150 M206 164 L189 142 M206 160 L223 140 M206 150 L197 124 M206 150 L215 122" fill="none"/>
-      <circle cx="206" cy="150" r="3.6" fill="#e7c878"/>
-      <circle cx="189" cy="142" r="2.4"/><circle cx="223" cy="140" r="2.4"/>
-      <circle cx="197" cy="124" r="2.2"/><circle cx="215" cy="122" r="2.2"/><circle cx="206" cy="200" r="2.4"/>
-    </g>
-    <path d="M64 98 Q 72 122 100 174 L 130 232 Q 139 250 152 230 L 184 112" fill="none" stroke="url(#silver)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M166 234 L216 72 L272 210 Q 284 238 306 230" fill="none" stroke="url(#gold)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="216" cy="72" r="20" fill="url(#glow)" filter="url(#soft)"/>
-    <circle cx="216" cy="71" r="6.5" fill="#fff7e0"/><circle cx="216" cy="71" r="3" fill="#ffffff"/>
+  <symbol id="va" viewBox="14 12 72 84">
+    <path d="M24 86 L50 22 L76 86" fill="none" stroke="#F4F2EC" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M37 60 L48 71 L72 41" fill="none" stroke="#C9A24A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
 </defs></svg>
 
@@ -310,7 +373,7 @@
     <h1>Tus procesos,<br>orquestados con <span class="gold">IA</span> de confianza</h1>
     <p class="lead">Conectamos tus sistemas, automatizamos lo que te frena y desplegamos agentes de IA — con la fiabilidad, la trazabilidad y el control que tu empresa necesita.</p>
     <div class="cta-row">
-      <a class="btn btn-gold" href="#contacto">Contacto</a>
+      <a class="btn btn-gold" href="#radiografia">Empieza por la Radiografía</a>
       <a class="btn btn-ghost" href="#proceso">Cómo trabajamos</a>
     </div>
   </div>
@@ -474,7 +537,7 @@
       <p class="ro-note">Sabes la cifra exacta antes de empezar: sin sorpresas ni presupuesto abierto.</p>
       <p class="ro-pay">Si la Radiografía detecta una sola fuga — un trabajo sin facturar, un cobro olvidado — se ha pagado sola.</p>
       <a class="btn btn-gold" href="#contacto">Pide tu Radiografía</a>
-      <p class="ro-free">Sin compromiso: en una llamada de 30 minutos ya te llevas una primera lectura de tu situación.</p>
+      <p class="ro-free">La llamada de valoración (30 min) es gratuita y sin compromiso: en ella te damos una primera lectura de tu situación y el precio cerrado de tu Radiografía.</p>
     </aside>
   </div>
 </div></section>
@@ -502,21 +565,30 @@
     <form class="cform" id="contact-form" novalidate>
       <div>
         <label for="cf-name">Nombre</label>
-        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="120" required>
+        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="120" required aria-describedby="err-name">
+        <p class="field-err" id="err-name" role="alert"></p>
       </div>
       <div>
         <label for="cf-email">Email</label>
-        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="nombre@empresa.com" required aria-describedby="err-email">
+        <p class="field-err" id="err-email" role="alert"></p>
       </div>
       <div>
         <label for="cf-message">¿Qué te gustaría automatizar?</label>
-        <textarea id="cf-message" name="message" maxlength="4000" required></textarea>
+        <textarea id="cf-message" name="message" maxlength="4000" required aria-describedby="err-message"></textarea>
+        <p class="field-err" id="err-message" role="alert"></p>
       </div>
       <div class="hp" aria-hidden="true">
         <label for="cf-web">Web</label>
         <input id="cf-web" name="web" type="text" tabindex="-1" autocomplete="off">
       </div>
-      <button class="btn btn-gold" type="submit" style="font-size:16px;padding:15px 30px">Enviar mensaje</button>
+      <label class="consent" for="cf-consent">
+        <input id="cf-consent" name="consent" type="checkbox" required aria-describedby="err-consent">
+        <span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</span>
+      </label>
+      <p class="field-err" id="err-consent" role="alert"></p>
+      <button class="btn btn-gold" type="submit" style="font-size:16px;padding:15px 30px">Hablemos de tu automatización</button>
+      <p class="form-note">Te respondemos en menos de 24 h laborables · Sin compromiso · No compartimos tus datos.</p>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
     <p class="alt-mail">O si lo prefieres, escríbenos directamente a <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a></p>
@@ -526,7 +598,7 @@
 <!-- FOOTER -->
 <footer><div class="wrap foot">
   <a class="logo" href="#top"><svg class="sym"><use href="#va"/></svg><span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span></a>
-  <nav class="foot-links"><a href="#servicios">Servicios</a><a href="#seguridad">Seguridad</a><a href="#radiografia">Radiografía</a><a href="#contacto">Contacto</a></nav>
+  <nav class="foot-links"><a href="#servicios">Servicios</a><a href="#seguridad">Seguridad</a><a href="#radiografia">Radiografía</a><a href="#contacto">Contacto</a><a href="privacidad.html">Privacidad</a><a href="aviso-legal.html">Aviso legal</a></nav>
   <span class="muted">© 2026 Veris Automatia</span>
 </div></footer>
 
@@ -554,10 +626,32 @@
 (function(){
   var form = document.getElementById('contact-form');
   if(!form) return;
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function setErr(name, msg){
+    var field = form.elements[name];
+    var box = document.getElementById('err-' + name);
+    if(box) box.textContent = msg || '';
+    if(field && field.setAttribute) field.setAttribute('aria-invalid', msg ? 'true' : 'false');
+  }
+
+  function validate(){
+    var firstBad = null;
+    if(!form.elements.name.value.trim()){ setErr('name','Dinos tu nombre.'); firstBad = firstBad || form.elements.name; } else setErr('name','');
+    if(!EMAIL_RE.test(form.elements.email.value.trim())){ setErr('email','Introduce un email válido (p. ej. nombre@empresa.com).'); firstBad = firstBad || form.elements.email; } else setErr('email','');
+    if(form.elements.message.value.trim().length < 10){ setErr('message','Cuéntanos un poco más (al menos 10 caracteres).'); firstBad = firstBad || form.elements.message; } else setErr('message','');
+    if(!form.elements.consent.checked){ setErr('consent','Necesitamos tu consentimiento para responderte.'); firstBad = firstBad || form.elements.consent; } else setErr('consent','');
+    if(firstBad && firstBad.focus) firstBad.focus();
+    return !firstBad;
+  }
+
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
     var st = form.querySelector('.form-status');
     var btn = form.querySelector('button[type="submit"]');
+    st.className = 'form-status';
+    st.textContent = '';
+    if(!validate()) return;
     var data = {
       name: form.elements.name.value,
       email: form.elements.email.value,
@@ -565,7 +659,6 @@
       web: form.elements.web.value
     };
     btn.disabled = true;
-    st.className = 'form-status';
     st.textContent = 'Enviando…';
     fetch('https://n8n.frautomatia.com/webhook/contacto-verisautomatia', {
       method: 'POST',
@@ -575,11 +668,12 @@
     .then(function(j){
       if(j.ok){
         st.className = 'form-status ok';
-        st.textContent = 'Mensaje enviado. Te responderemos muy pronto.';
+        st.textContent = 'Mensaje enviado. Te respondemos en menos de 24 h laborables.';
         form.reset();
+        ['name','email','message','consent'].forEach(function(n){ setErr(n,''); });
       } else {
         st.className = 'form-status err';
-        st.textContent = 'Revisa los campos: nombre, un email válido y un mensaje de al menos 10 caracteres.';
+        st.textContent = 'No se pudo enviar. Revisa los datos o escríbenos a vaia@verisautomatia.com';
       }
     }).catch(function(){
       st.className = 'form-status err';
