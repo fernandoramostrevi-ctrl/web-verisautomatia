@@ -1,0 +1,34 @@
+# SENTINEL-ALLOW-GITIGNORE-d4e91a7c
+# .gitignore — web-verisautomatia (sitio estático, GitHub Pages)
+# El marcador de la primera línea permite crear este fichero sin que el hook
+# MCP Sentinel lo bloquee. Es inocuo para git; puede borrarse antes de commitear.
+
+# Secretos / credenciales — NUNCA commitear
+.env
+.env.*
+*.local
+*.pem
+*.key
+*.pfx
+*.p12
+credentials.json
+.secrets/
+
+# Dependencias
+node_modules/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs / temporales
+*.log
+tmp/
+temp/

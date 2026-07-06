@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recepcionista 24/7 por WhatsApp — Veris Automatia</title>
+<meta name="description" content="Un asistente de IA que atiende tu WhatsApp al instante, registra clientes, agenda citas y envía recordatorios automáticos — 24 horas, 7 días, con tus datos bajo control.">
+<link rel="canonical" href="https://verisautomatia.com/servicios/recepcionista-whatsapp.html">
+<meta name="theme-color" content="#0E0F12">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verisautomatia.com/servicios/recepcionista-whatsapp.html">
+<meta property="og:site_name" content="Veris Automatia">
+<meta property="og:title" content="Recepcionista 24/7 por WhatsApp — Veris Automatia">
+<meta property="og:description" content="Un asistente de IA que atiende tu WhatsApp al instante, registra clientes, agenda citas y envía recordatorios automáticos — 24 horas, 7 días, con tus datos bajo control.">
+<meta property="og:image" content="https://verisautomatia.com/brand/logo-va/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Recepcionista 24/7 por WhatsApp — Veris Automatia">
+<meta name="twitter:description" content="Un asistente de IA que atiende tu WhatsApp al instante, registra clientes, agenda citas y envía recordatorios automáticos.">
+<meta name="twitter:image" content="https://verisautomatia.com/brand/logo-va/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/logo-va/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/brand/logo-va/favicon-192.png">
+<link rel="apple-touch-icon" href="/brand/logo-va/apple-touch-icon.png">
+<link rel="preload" href="/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Tipografías autoalojadas (sin conexión a Google Fonts) */
+  @font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/outfit.woff2') format('woff2');}
+  @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url('/fonts/space-grotesk.woff2') format('woff2');}
+  :root{
+    --ink:#0E0F12; --surface:#16181C; --surface-2:#1C1F25; --line:#282C33;
+    --gold:#C9A24A; --gold-soft:#E0C078; --silver:#C8CCD2; --gray:#8A909A;
+    --gray-2:#B6BBC3; --on-dark:#ECEDEF; --hueso:#F4F2EC;
+    --ease-out:cubic-bezier(.23,1,.32,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--on-dark);font-family:"Outfit",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .gold{color:var(--gold)}
+  .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:10px;font-weight:500;font-size:15px;cursor:pointer;border:1px solid transparent;
+    transition:transform .18s var(--ease-out),filter .18s var(--ease-out),border-color .18s var(--ease-out),color .18s var(--ease-out),box-shadow .18s var(--ease-out)}
+  .btn:active{transform:scale(.97)}
+  .btn-gold{background:linear-gradient(135deg,#E0C078,#C9A24A);color:#181206;box-shadow:0 6px 20px rgba(201,162,74,.18)}
+  .btn-ghost{border-color:var(--line);color:var(--on-dark)}
+  @media(hover:hover) and (pointer:fine){
+    .btn-gold:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 10px 28px rgba(201,162,74,.28)}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  }
+  .section{padding:88px 0}
+  .muted{color:var(--gray)}
+
+  /* logo */
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .sym{width:34px;height:32px}
+  .logo .wm{font-family:"Space Grotesk",sans-serif;font-weight:300;letter-spacing:.04em;font-size:21px;color:var(--on-dark)}
+  .logo .wm .ia{color:var(--gold);font-weight:400}
+  @media(max-width:430px){.logo .wm{font-size:18px}}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(14,15,18,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;gap:18px}
+  .nav-side{display:flex;align-items:center;gap:22px}
+  .nav-back{font-size:14px;color:var(--gray-2);transition:color .18s var(--ease-out)}
+  .nav-back:hover{color:var(--gold)}
+  @media(max-width:560px){.nav-back{display:none}}
+
+  /* hero de servicio */
+  .shero{position:relative;padding:96px 0 72px;overflow:hidden}
+  .shero::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;top:-340px;right:-180px;
+    background:radial-gradient(circle,rgba(201,162,74,.14),transparent 62%);pointer-events:none}
+  .shero h1{font-size:clamp(32px,4.4vw,52px);font-weight:600;line-height:1.1;letter-spacing:-.02em;margin:18px 0 20px;max-width:760px}
+  .shero p.lead{font-size:18px;color:var(--gray-2);max-width:640px;margin-bottom:32px}
+  .shero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* section heads */
+  .shead{max-width:640px;margin:0 auto 52px}
+  .shead.center{text-align:center}
+  .shead h2{font-size:clamp(26px,3.2vw,38px);font-weight:600;letter-spacing:-.02em;margin:14px 0 14px}
+  .shead p{color:var(--gray)}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px 26px;transition:.25s}
+  .card:hover{border-color:rgba(201,162,74,.5);transform:translateY(-3px);background:var(--surface-2)}
+  .card .ico{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+    background:rgba(201,162,74,.12);border:1px solid rgba(201,162,74,.3);margin-bottom:18px}
+  .card .ico svg{width:23px;height:23px;stroke:var(--gold);fill:none;stroke-width:1.7}
+  .card h3{font-size:18px;font-weight:600;margin-bottom:9px}
+  .card p{font-size:14.5px;color:var(--gray)}
+
+  /* pasos */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr);gap:26px}}
+  @media(max-width:520px){.steps{grid-template-columns:1fr}}
+  .step{position:relative;padding-top:14px}
+  .step .num{font-family:"Space Grotesk";font-size:14px;font-weight:700;color:var(--ink);background:var(--gold);
+    width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .step h3{font-size:17px;font-weight:600;margin-bottom:7px}
+  .step p{font-size:13.5px;color:var(--gray)}
+
+  /* banda de confianza / radiografía */
+  .band{background:linear-gradient(120deg,#17191e,#101216);border:1px solid rgba(201,162,74,.32);border-radius:22px;
+    padding:46px 44px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;overflow:hidden}
+  .band::after{content:"";position:absolute;left:-100px;bottom:-140px;width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,162,74,.10),transparent 65%);pointer-events:none}
+  .band h2{font-size:clamp(22px,2.8vw,30px);font-weight:600;letter-spacing:-.01em;margin:10px 0 10px}
+  .band p{color:var(--gray-2);max-width:600px}
+  .band .btn{position:relative;z-index:1}
+  @media(max-width:760px){.band{grid-template-columns:1fr;padding:36px 28px}}
+
+  /* lista para quién */
+  .who{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:880px;margin:0 auto}
+  @media(max-width:700px){.who{grid-template-columns:1fr}}
+  .who .w{display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:18px 20px;font-size:14.5px;color:var(--gray-2)}
+  .who .w svg{flex:0 0 auto;width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:2;margin-top:2px}
+
+  /* CTA final */
+  .contact{background:radial-gradient(120% 120% at 50% 0%,#1b1f26,#0e0f12 70%);border:1px solid var(--line);border-radius:24px;
+    padding:60px 40px;text-align:center}
+  .contact h2{font-size:clamp(26px,3.4vw,38px);font-weight:600;letter-spacing:-.02em;margin-bottom:14px}
+  .contact p{color:var(--gray-2);max-width:520px;margin:0 auto 28px}
+
+  /* otras soluciones */
+  .more{border-top:1px solid var(--line);padding:36px 0 8px}
+  .more .lbl{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);font-weight:600;margin-bottom:14px}
+  .more-links{display:flex;gap:12px 26px;flex-wrap:wrap;font-size:14.5px;color:var(--gray-2)}
+  .more-links a{transition:color .18s var(--ease-out)}
+  .more-links a:hover{color:var(--gold)}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:44px 0 38px;margin-top:56px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  .foot .muted{font-size:13px}
+  .foot-links{display:flex;gap:22px;font-size:14px;color:var(--gray-2);flex-wrap:wrap}
+  .foot-links a:hover{color:var(--gold)}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+  .reveal.is-in{opacity:1;transform:none}
+  .reveal-group > *{opacity:0;transform:translateY(18px);transition:opacity .55s var(--ease-out),transform .55s var(--ease-out)}
+  .reveal-group.is-in > *{opacity:1;transform:none}
+  .reveal-group.is-in > :nth-child(1){transition-delay:0ms}
+  .reveal-group.is-in > :nth-child(2){transition-delay:60ms}
+  .reveal-group.is-in > :nth-child(3){transition-delay:120ms}
+  .reveal-group.is-in > :nth-child(4){transition-delay:180ms}
+  .reveal-group.is-in > :nth-child(5){transition-delay:240ms}
+  .reveal-group.is-in > :nth-child(6){transition-delay:300ms}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+      transition-duration:.01ms!important;scroll-behavior:auto!important}
+    .reveal,.reveal-group > *{opacity:1!important;transform:none!important}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://verisautomatia.com/servicios/recepcionista-whatsapp.html#service",
+  "name": "Recepcionista 24/7 por WhatsApp",
+  "serviceType": "Automatización de atención al cliente por WhatsApp",
+  "description": "Asistente de IA que atiende WhatsApp al instante, registra clientes, agenda citas y envía recordatorios automáticos 24 horas y 1 hora antes de cada cita.",
+  "url": "https://verisautomatia.com/servicios/recepcionista-whatsapp.html",
+  "provider": { "@id": "https://verisautomatia.com/#org" },
+  "areaServed": { "@type": "Country", "name": "España" },
+  "availableLanguage": ["Spanish"]
+}
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="va" viewBox="14 12 72 84">
+    <path d="M24 86 L50 22 L76 86" fill="none" stroke="#F4F2EC" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M37 60 L48 71 L72 41" fill="none" stroke="#C9A24A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</defs></svg>
+
+<!-- NAV -->
+<header class="nav"><div class="wrap nav-in">
+  <a class="logo" href="/">
+    <svg class="sym"><use href="#va"/></svg>
+    <span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span>
+  </a>
+  <div class="nav-side">
+    <a class="nav-back" href="/#soluciones">← Todas las soluciones</a>
+    <a class="btn btn-gold" href="/#contacto">Hablemos</a>
+  </div>
+</div></header>
+
+<!-- HERO -->
+<section class="shero"><div class="wrap">
+  <span class="eyebrow">Soluciones · Atención al cliente</span>
+  <h1>Un recepcionista que atiende tu <span class="gold">WhatsApp</span> 24/7 — sin hacerte esperar a nadie</h1>
+  <p class="lead">Cada mensaje que llega fuera de horario, en plena consulta o mientras estás con otro cliente es una cita que se puede perder. Este asistente responde al instante, registra al cliente, agenda la cita y la recuerda por ti.</p>
+  <div class="cta-row">
+    <a class="btn btn-gold" href="/#contacto">Quiero verlo en mi negocio</a>
+    <a class="btn btn-ghost" href="#como-funciona">Cómo funciona</a>
+  </div>
+</div></section>
+
+<!-- QUÉ HACE -->
+<section class="section" style="padding-top:24px"><div class="wrap">
+  <div class="shead center reveal">
+    <span class="eyebrow">Qué hace por ti</span>
+    <h2>De mensaje recibido a cita confirmada, sin intervención</h2>
+  </div>
+  <div class="cards reveal-group">
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-4-7.5"/><path d="M12 7v5l3 3"/></svg></div>
+      <h3>Responde al instante, a cualquier hora</h3><p>Noches, fines de semana y horas punta: nadie se queda sin respuesta ni se va a la competencia por esperar.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18M9 15h.01M13 15h.01M17 15h.01"/></svg></div>
+      <h3>Agenda citas en tu calendario</h3><p>Consulta la disponibilidad real, propone hueco y confirma la cita directamente en tu agenda.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+      <h3>Recordatorios automáticos</h3><p>Aviso 24 horas y 1 hora antes de cada cita: menos ausencias, agenda más llena.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></div>
+      <h3>Registra cada cliente</h3><p>Nombre, contacto y motivo quedan guardados en tu sistema, no en la memoria de nadie.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h3>Recuerda la conversación</h3><p>Memoria por cliente: si alguien escribe otra vez, el asistente sabe quién es y qué se habló.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M15 10l5 5-5 5"/><path d="M4 4v7a4 4 0 0 0 4 4h12"/></svg></div>
+      <h3>Escala a una persona cuando toca</h3><p>Ante una duda compleja o una urgencia, avisa y traspasa la conversación a tu equipo con todo el contexto.</p></div>
+  </div>
+</div></section>
+
+<!-- CÓMO FUNCIONA -->
+<section class="section" id="como-funciona" style="padding-top:0"><div class="wrap">
+  <div class="shead center reveal"><span class="eyebrow">Cómo funciona</span><h2>En marcha sobre tu número y tu agenda actuales</h2></div>
+  <div class="steps reveal-group">
+    <div class="step"><div class="num">1</div><h3>Diseño a tu medida</h3><p>Definimos contigo servicios, horarios, tono y qué puede y no puede hacer el asistente.</p></div>
+    <div class="step"><div class="num">2</div><h3>Conexión</h3><p>Lo conectamos a tu WhatsApp y a tu agenda o sistema de citas, sin cambiar tus herramientas.</p></div>
+    <div class="step"><div class="num">3</div><h3>Pruebas contigo</h3><p>Lo validamos en un entorno controlado: nada atiende a clientes reales sin tu visto bueno.</p></div>
+    <div class="step"><div class="num">4</div><h3>En producción</h3><p>El asistente atiende, agenda y recuerda. Nosotros supervisamos y ajustamos lo que haga falta.</p></div>
+  </div>
+</div></section>
+
+<!-- PARA QUIÉN -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="shead center reveal"><span class="eyebrow">Para quién es</span><h2>Si vives de la agenda, es para ti</h2></div>
+  <div class="who reveal-group">
+    <div class="w"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Clínicas y consultas con cita previa: dentales, fisioterapia, estética, veterinarias…</span></div>
+    <div class="w"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Talleres, instaladores y servicios técnicos que pierden llamadas mientras están trabajando.</span></div>
+    <div class="w"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Negocios donde reservar es la venta: peluquerías, academias, centros deportivos.</span></div>
+    <div class="w"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>Cualquier pyme donde el WhatsApp suena más rápido de lo que el equipo puede atender.</span></div>
+  </div>
+</div></section>
+
+<!-- CONFIANZA -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="band reveal">
+    <div>
+      <span class="eyebrow">Veris = veracidad</span>
+      <h2>Con límites que tú defines y datos bajo tu control</h2>
+      <p>El asistente solo hace aquello para lo que le das permiso: cada conversación es trazable, el traspaso a humano está garantizado y la solución se despliega de forma reversible, sin atarte a nosotros.</p>
+    </div>
+    <a class="btn btn-ghost" href="/#seguridad">Nuestro compromiso de seguridad</a>
+  </div>
+</div></section>
+
+<!-- RADIOGRAFÍA -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="band reveal">
+    <div>
+      <span class="eyebrow">Por dónde empezar</span>
+      <h2>¿No tienes claro si esto es lo primero que necesitas?</h2>
+      <p>La Radiografía Operativa mapea tu empresa en 2 semanas y te dice, con datos, dónde la automatización rinde más. Si el recepcionista es tu mayor fuga, saldrá el primero del roadmap.</p>
+    </div>
+    <a class="btn btn-gold" href="/#radiografia">Conoce la Radiografía</a>
+  </div>
+</div></section>
+
+<!-- CTA FINAL -->
+<section class="section" style="padding-top:0"><div class="wrap">
+  <div class="contact reveal">
+    <span class="eyebrow">Hablemos</span>
+    <h2>¿Cuántas citas se te escapan cada semana?</h2>
+    <p>Cuéntanos cómo atiendes hoy y te decimos, sin compromiso, qué haría el recepcionista en tu caso concreto.</p>
+    <a class="btn btn-gold" href="/#contacto" style="font-size:16px;padding:15px 30px">Hablemos de tu atención al cliente</a>
+  </div>
+
+  <div class="more">
+    <p class="lbl">Otras soluciones</p>
+    <nav class="more-links">
+      <a href="/servicios/automatizacion-procesos.html">Automatización de procesos</a>
+      <a href="/servicios/aplicaciones-medida.html">Aplicaciones a medida</a>
+      <a href="/servicios/creacion-webs.html">Creación de webs y SEO</a>
+      <a href="/#radiografia">Radiografía Operativa</a>
+    </nav>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer><div class="wrap foot">
+  <a class="logo" href="/"><svg class="sym"><use href="#va"/></svg><span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span></a>
+  <nav class="foot-links"><a href="/#soluciones">Soluciones</a><a href="/#seguridad">Seguridad</a><a href="/#radiografia">Radiografía</a><a href="/#contacto">Contacto</a><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a></nav>
+  <span class="muted">© 2026 Veris Automatia</span>
+</div></footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal, .reveal-group');
+  if(reduce || !('IntersectionObserver' in window)){
+    targets.forEach(function(el){ el.classList.add('is-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+  targets.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
