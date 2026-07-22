@@ -142,6 +142,35 @@
   .foot-links{display:flex;gap:22px;font-size:14px;color:var(--gray-2);flex-wrap:wrap}
   .foot-links a:hover{color:var(--gold)}
 
+  /* demo en vídeo */
+  .demo-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
+  @media(max-width:860px){.demo-grid{grid-template-columns:1fr;gap:34px;justify-items:center;text-align:center}}
+  .demo-copy{max-width:460px}
+  .demo-copy h2{font-size:clamp(26px,3.2vw,36px);font-weight:600;letter-spacing:-.02em;line-height:1.16;margin:14px 0 16px}
+  .demo-copy p{color:var(--gray-2);font-size:16px;margin-bottom:22px}
+  .demo-tags{display:flex;gap:10px;flex-wrap:wrap}
+  @media(max-width:860px){.demo-tags{justify-content:center}}
+  .demo-tag{font-size:13px;color:var(--gray-2);background:var(--surface);border:1px solid var(--line);
+    border-radius:999px;padding:7px 14px;display:inline-flex;gap:7px;align-items:center;white-space:nowrap}
+  .demo-tag svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2}
+
+  /* reproductor tipo teléfono */
+  .demo-player{position:relative;width:100%;max-width:338px;aspect-ratio:730/1080;border-radius:26px;overflow:hidden;
+    background:#0b0d10;border:1px solid var(--line);
+    box-shadow:0 30px 60px -22px rgba(0,0,0,.7),0 0 0 1px rgba(201,162,74,.12),0 0 46px -14px rgba(201,162,74,.28)}
+  .demo-player video{width:100%;height:100%;object-fit:cover;display:block}
+  .demo-scrim{position:absolute;inset:0;pointer-events:none;transition:opacity .3s var(--ease-out);
+    background:linear-gradient(180deg,rgba(10,12,15,.10),rgba(10,12,15,.46))}
+  .demo-play{position:absolute;inset:0;margin:auto;width:74px;height:74px;border-radius:50%;border:none;cursor:pointer;
+    background:linear-gradient(135deg,#E0C078,#C9A24A);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px rgba(201,162,74,.42);transition:transform .18s var(--ease-out),filter .18s var(--ease-out)}
+  .demo-play svg{width:30px;height:30px;margin-left:4px;fill:#181206}
+  .demo-play::after{content:"";position:absolute;inset:-11px;border-radius:50%;border:1px solid rgba(201,162,74,.45);
+    animation:demopulse 2.4s ease-out infinite}
+  @media(hover:hover) and (pointer:fine){.demo-play:hover{transform:scale(1.06);filter:brightness(1.06)}}
+  @keyframes demopulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.35);opacity:0}}
+  .demo-player.is-playing .demo-play,.demo-player.is-playing .demo-scrim{opacity:0;pointer-events:none}
+
   /* scroll reveal */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
   .reveal.is-in{opacity:1;transform:none}
@@ -204,6 +233,32 @@
   <div class="cta-row">
     <a class="btn btn-gold" href="/#contacto">Quiero verlo en mi negocio</a>
     <a class="btn btn-ghost" href="#como-funciona">Cómo funciona</a>
+  </div>
+</div></section>
+
+<!-- DEMO EN VÍDEO -->
+<section class="section" style="padding:36px 0 60px"><div class="wrap">
+  <div class="demo-grid reveal">
+    <div class="demo-copy">
+      <span class="eyebrow">Míralo en acción</span>
+      <h2>Una conversación real, de la duda a la cita</h2>
+      <p>Sin guiones. El asistente saluda, explica el servicio con su precio y consulta la agenda para proponer hueco. Y cuando la hora pedida ya está ocupada, ofrece la alternativa más cercana hasta cerrar la cita.</p>
+      <div class="demo-tags">
+        <span class="demo-tag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>58 segundos</span>
+        <span class="demo-tag"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>Con sonido</span>
+        <span class="demo-tag"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Caso real de agenda</span>
+      </div>
+    </div>
+    <div class="demo-player">
+      <video preload="none" playsinline poster="/media/demo-recepcionista-poster.jpg">
+        <source src="/media/demo-recepcionista.mp4" type="video/mp4">
+        Tu navegador no puede reproducir este vídeo. <a href="/media/demo-recepcionista.mp4">Descárgalo aquí</a>.
+      </video>
+      <div class="demo-scrim"></div>
+      <button class="demo-play" type="button" aria-label="Reproducir vídeo demo (con sonido)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </div>
   </div>
 </div></section>
 
@@ -316,6 +371,26 @@
     });
   }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
   targets.forEach(function(el){ io.observe(el); });
+})();
+
+// Reproductor de la demo: play manual (lleva sonido), luego controles nativos
+(function(){
+  var player = document.querySelector('.demo-player');
+  if(!player) return;
+  var video = player.querySelector('video');
+  var btn = player.querySelector('.demo-play');
+  function start(){
+    player.classList.add('is-playing');
+    video.setAttribute('controls','');
+    var p = video.play();
+    if(p && p.catch){ p.catch(function(){}); }
+  }
+  btn.addEventListener('click', start);
+  video.addEventListener('ended', function(){
+    video.removeAttribute('controls');
+    player.classList.remove('is-playing');
+    video.load(); // restaura el póster
+  });
 })();
 </script>
 
