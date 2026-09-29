@@ -119,66 +119,27 @@
   .mobile-menu a:active{color:var(--gold)}
   .mobile-menu .grp{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600;padding:18px 4px 6px}
 
-  /* hero */
-  .hero{position:relative;padding:120px 0 90px;overflow:hidden}
+  /* hero: texto a la izquierda y, justo debajo, una franja de circuito (10 pistas) antes de los pilares */
+  .hero{position:relative;padding:110px 0 30px;overflow:hidden}
   .hero::before{content:"";position:absolute;width:680px;height:680px;border-radius:50%;top:-340px;right:-160px;
-    background:radial-gradient(circle,rgba(201,162,74,.16),transparent 62%);pointer-events:none}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}
-  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
-  .hero h1{font-size:clamp(34px,4.6vw,58px);font-weight:600;line-height:1.08;letter-spacing:-.02em;margin:20px 0 22px}
-  .hero p.lead{font-size:18px;color:var(--gray-2);max-width:540px;margin-bottom:34px}
+    background:radial-gradient(circle,rgba(201,162,74,.12),transparent 62%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-copy{max-width:760px}
+  .hero h1{font-size:clamp(38px,5.2vw,64px);font-weight:600;line-height:1.06;letter-spacing:-.02em;margin:22px 0 24px}
+  .hero p.lead{font-size:18.5px;color:var(--gray-2);max-width:580px;margin-bottom:36px}
   .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;isolation:isolate}
-  /* glow giratorio lento detrás del monograma */
-  .hero-visual .rotor{position:absolute;z-index:0;width:120%;aspect-ratio:1/1;border-radius:50%;pointer-events:none;
-    background:conic-gradient(from 0deg,transparent 0deg,rgba(201,162,74,.20) 70deg,transparent 150deg,
-      transparent 232deg,rgba(200,204,210,.12) 300deg,transparent 360deg);
-    filter:blur(34px);animation:rotor 28s linear infinite}
-  .hero-visual::before{content:"";position:absolute;width:70%;height:70%;border-radius:50%;z-index:0;
-    background:radial-gradient(circle,rgba(201,162,74,.18),transparent 62%);filter:blur(26px);pointer-events:none}
-  /* circuito vectorial del hero: la corriente recorre los cables y los nodos
-     se encienden al recibirla (el circuito del PNG está borrado; este SVG lo sustituye) */
-  .spark-layer{position:absolute;inset:0;z-index:4;pointer-events:none}
-  /* brillo base del circuito + intensificación al pasar el ratón */
-  .cwires{opacity:.88;transition:opacity .45s var(--ease-out)}
-  .csparks{filter:drop-shadow(0 0 3px rgba(255,214,130,.9)) drop-shadow(0 0 7px rgba(255,196,90,.45)) brightness(1);transition:filter .45s var(--ease-out)}
-  .cflashes,.cnodes2{filter:brightness(1);transition:filter .45s var(--ease-out)}
-  @media(hover:hover) and (pointer:fine){
-    .hero-visual:hover .cwires{opacity:1}
-    .hero-visual:hover .csparks{filter:drop-shadow(0 0 5px rgba(255,224,155,1)) drop-shadow(0 0 13px rgba(255,202,105,.75)) brightness(1.3)}
-    .hero-visual:hover .cflashes{filter:brightness(1.35)}
-    .hero-visual:hover .cnodes2{filter:brightness(1.2)}
-  }
-  .cs{stroke-dasharray:16 104;stroke-dashoffset:116;opacity:0;animation:cflow 6.2s linear infinite}
-  .cs.g1{animation-delay:1.2s}
-  .cs.g2{animation-delay:2.4s}
-  @keyframes cflow{
-    0%{stroke-dashoffset:116;opacity:0}
-    3%{opacity:.95}
-    35%{opacity:.95}
-    42%{stroke-dashoffset:-100;opacity:0}
-    100%{stroke-dashoffset:-100;opacity:0}
-  }
-  .nf{opacity:0;transform-box:fill-box;transform-origin:center;animation:nflash 6.2s ease-in-out infinite}
-  .nf.g0{animation-delay:2.2s}
-  .nf.g1{animation-delay:3.4s}
-  .nf.g2{animation-delay:4.6s}
-  @keyframes nflash{
-    0%{opacity:0;transform:scale(.5)}
-    4.5%{opacity:.95;transform:scale(1)}
-    14%{opacity:.5;transform:scale(1.05)}
-    26%{opacity:0;transform:scale(1.12)}
-    100%{opacity:0}
-  }
-  /* tarjeta del monograma */
-  .hero-visual .card{position:relative;z-index:3;width:100%;max-width:520px;animation:float 7.5s var(--ease-in-out) infinite}
-  /* marco interior sin padding: el spark-layer debe medir exactamente lo que mide la imagen */
-  .hero-visual .logo-frame{position:relative}
-  .hero-visual img{display:block;width:100%;height:auto;border-radius:24px;border:1px solid var(--line);
-    box-shadow:0 28px 64px rgba(0,0,0,.55);transition:border-color .4s var(--ease-out),box-shadow .4s var(--ease-out)}
-  @media(hover:hover) and (pointer:fine){.hero-visual:hover img{border-color:rgba(201,162,74,.42);box-shadow:0 34px 76px rgba(0,0,0,.6)}}
-  @keyframes rotor{to{transform:rotate(360deg)}}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  /* franja de circuito: la dibuja el script del final; el haz va de izquierda a derecha
+     y cada destino se enciende solo cuando le llega */
+  .hero .flow{position:relative;height:190px;margin-top:24px;pointer-events:none}
+  @media(max-width:600px){.hero .flow{height:170px;margin-top:20px}}
+  .flow svg{display:block;width:100%;height:100%}
+  .flow .wires{fill:none;stroke:#9aa1ab;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;opacity:.5}
+  .flow .vias{fill:#c9ced6;opacity:.6}
+  .flow .dest-off{fill:#16191e;stroke:#6b727d;stroke-width:1.2}
+  .flow .sparks{fill:none;stroke:#ffe9b8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+    filter:drop-shadow(0 0 3px rgba(255,214,130,.9)) drop-shadow(0 0 8px rgba(255,196,90,.5))}
+  .flow .sparks path{opacity:0}
+  .flow .lit g{opacity:0;transform-box:fill-box;transform-origin:center}
 
   /* metrics */
   .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:6px 0 4px}
@@ -309,8 +270,6 @@
     *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
       transition-duration:.01ms!important;scroll-behavior:auto!important}
     .reveal,.reveal-group > *{opacity:1!important;transform:none!important}
-    .hero-visual .rotor,.hero-visual .card,.cs,.nf{animation:none!important}
-    .csparks,.cflashes{opacity:0}
   }
 
   /* formulario — errores inline, consentimiento y nota */
@@ -500,98 +459,37 @@
 </header>
 
 <!-- HERO -->
-<section class="hero" id="top"><div class="wrap hero-grid">
-  <div>
-    <span class="eyebrow">Orquestación · Automatización · Agentes IA</span>
-    <h1>Automatiza tu empresa<br>sin perder el <span class="gold">control</span></h1>
-    <p class="lead">Conectamos tus sistemas, automatizamos lo que te frena y desplegamos agentes de IA — con la fiabilidad y la trazabilidad que tu empresa necesita.</p>
-    <div class="cta-row">
-      <a class="btn btn-gold" href="#radiografia">Empieza por la Radiografía</a>
-      <a class="btn btn-ghost" href="#proceso">Cómo trabajamos</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <span class="rotor" aria-hidden="true"></span>
-    <div class="card">
-      <div class="logo-frame">
-      <img src="brand/logo-va/veris-va-hero.webp" alt="Veris Automatia — monograma VA metálico, V en plata y A en oro" width="520" height="520">
-      <svg class="spark-layer" viewBox="0 0 1280 1280" aria-hidden="true">
-        <defs>
-          <radialGradient id="goldBig"><stop offset="0" stop-color="#fffdf4"/><stop offset="0.45" stop-color="#ffe9b0"/><stop offset="1" stop-color="#d9b35e"/></radialGradient>
-          <radialGradient id="goldSmall"><stop offset="0" stop-color="#fff8e6"/><stop offset="0.5" stop-color="#f3d488"/><stop offset="1" stop-color="#cfa452"/></radialGradient>
-          <radialGradient id="halo"><stop offset="0" stop-color="#ffdf9a" stop-opacity="0.85"/><stop offset="0.55" stop-color="#e8b95f" stop-opacity="0.28"/><stop offset="1" stop-color="#dca94e" stop-opacity="0"/></radialGradient>
-        </defs>
-        <g class="cwires" fill="none" stroke="#b9bfc8" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.88">
-          <path d="M668.6 610 L668.6 455"/>
-          <path d="M650 610 L649.5 486"/>
-          <path d="M686 610 L687 518.5"/>
-          <path d="M669 540 L637 572 L637 610"/>
-          <path d="M670 512 L688 495 L688 474.5"/>
-          <path d="M648 528 L631 511.5"/>
-          <path d="M687.4 512 L715.7 505.9 L741 498 L754 488"/>
-          <path d="M669 540 L717.3 582.9"/>
-          <path d="M669 594 L725.8 541.4"/>
-          <path d="M669 594 L612 542.1"/>
-          <path d="M706.8 529.1 L620.9 582.4"/>
-          <path d="M725.8 541.4 L757 519"/>
-          <path d="M609 441 L550 558"/>
-          <path d="M601 488 L628 499"/>
-        </g>
-        <g class="cnodes2" stroke="none">
-          <circle cx="668.6" cy="446.0" r="25" fill="url(#halo)"/>
-          <circle cx="668.6" cy="446.0" r="7.4" fill="url(#goldBig)"/>
-          <circle cx="687.4" cy="512.0" r="17" fill="url(#halo)"/>
-          <circle cx="687.4" cy="512.0" r="5.1" fill="url(#goldSmall)"/>
-          <circle cx="669.0" cy="540.0" r="4.5" fill="#dfe3e9"/>
-          <circle cx="669.0" cy="594.0" r="3.5" fill="#dfe3e9"/>
-          <circle cx="688.0" cy="468.5" r="3.8" fill="#dfe3e9"/>
-          <circle cx="650.4" cy="479.7" r="3.8" fill="#dfe3e9"/>
-          <circle cx="631.0" cy="506.0" r="3.3" fill="#dfe3e9"/>
-          <circle cx="612.0" cy="542.1" r="2.8" fill="#dfe3e9"/>
-          <circle cx="620.9" cy="582.4" r="2.8" fill="#dfe3e9"/>
-          <circle cx="706.8" cy="529.1" r="3.3" fill="#dfe3e9"/>
-          <circle cx="725.8" cy="541.4" r="3.8" fill="#dfe3e9"/>
-          <circle cx="717.3" cy="582.9" r="2.8" fill="#dfe3e9"/>
-          <rect x="712.5" y="502.7" width="6.4" height="6.4" transform="rotate(45 715.7 505.9)" fill="#d8dce2"/>
-          <circle cx="549.0" cy="559.0" r="3.0" fill="#d8dce2"/>
-        </g>
-        <g class="csparks" fill="none" stroke="#ffe9b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <path class="cs g0" pathLength="100" d="M668.6 610 L668.6 455"/>
-          <path class="cs g0" pathLength="100" d="M650 610 L649.5 486"/>
-          <path class="cs g0" pathLength="100" d="M686 610 L687 518.5"/>
-          <path class="cs g1" pathLength="100" d="M669 540 L637 572 L637 610"/>
-          <path class="cs g1" pathLength="100" d="M670 512 L688 495 L688 474.5"/>
-          <path class="cs g1" pathLength="100" d="M648 528 L631 511.5"/>
-          <path class="cs g1" pathLength="100" d="M687.4 512 L715.7 505.9 L741 498 L754 488"/>
-          <path class="cs g2" pathLength="100" d="M669 540 L717.3 582.9"/>
-          <path class="cs g2" pathLength="100" d="M669 594 L725.8 541.4"/>
-          <path class="cs g2" pathLength="100" d="M669 594 L612 542.1"/>
-          <path class="cs g2" pathLength="100" d="M706.8 529.1 L620.9 582.4"/>
-          <path class="cs g2" pathLength="100" d="M725.8 541.4 L757 519"/>
-          <path class="cs g2" pathLength="100" d="M609 441 L550 558"/>
-          <path class="cs g2" pathLength="100" d="M601 488 L628 499"/>
-        </g>
-        <g class="cflashes">
-          <circle class="nf g0" cx="668.6" cy="446.0" r="32" fill="url(#halo)"/>
-          <circle class="nf g0" cx="687.4" cy="512.0" r="22" fill="url(#halo)"/>
-          <circle class="nf g1" cx="669.0" cy="540.0" r="16" fill="url(#halo)"/>
-          <circle class="nf g1" cx="669.0" cy="594.0" r="13" fill="url(#halo)"/>
-          <circle class="nf g1" cx="688.0" cy="468.5" r="16" fill="url(#halo)"/>
-          <circle class="nf g0" cx="650.4" cy="479.7" r="16" fill="url(#halo)"/>
-          <circle class="nf g1" cx="631.0" cy="506.0" r="14" fill="url(#halo)"/>
-          <circle class="nf g2" cx="612.0" cy="542.1" r="13" fill="url(#halo)"/>
-          <circle class="nf g2" cx="620.9" cy="582.4" r="13" fill="url(#halo)"/>
-          <circle class="nf g2" cx="706.8" cy="529.1" r="14" fill="url(#halo)"/>
-          <circle class="nf g2" cx="725.8" cy="541.4" r="16" fill="url(#halo)"/>
-          <circle class="nf g2" cx="717.3" cy="582.9" r="13" fill="url(#halo)"/>
-          <circle class="nf g1" cx="715.7" cy="505.9" r="11" fill="url(#halo)"/>
-          <circle class="nf g2" cx="549.0" cy="559.0" r="11" fill="url(#halo)"/>
-        </g>
-      </svg>
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">Orquestación · Automatización · Agentes IA</span>
+      <h1>Automatiza tu empresa<br>sin perder el <span class="gold">control</span></h1>
+      <p class="lead">Conectamos tus sistemas, automatizamos lo que te frena y desplegamos agentes de IA — con la fiabilidad y la trazabilidad que tu empresa necesita.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="#radiografia">Empieza por la Radiografía</a>
+        <a class="btn btn-ghost" href="#proceso">Cómo trabajamos</a>
       </div>
     </div>
   </div>
-</div></section>
+  <div class="flow" aria-hidden="true">
+    <svg id="hero-flow">
+      <defs>
+        <radialGradient id="hf-gold"><stop offset="0" stop-color="#fffdf4"/><stop offset="0.45" stop-color="#ffe9b0"/><stop offset="1" stop-color="#d9b35e"/></radialGradient>
+        <radialGradient id="hf-halo"><stop offset="0" stop-color="#ffdf9a" stop-opacity="0.85"/><stop offset="0.55" stop-color="#e8b95f" stop-opacity="0.28"/><stop offset="1" stop-color="#dca94e" stop-opacity="0"/></radialGradient>
+        <!-- fundido de entrada: las pistas llegan desde el borde izquierdo de la pantalla -->
+        <linearGradient id="hf-fade-grad" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity="1"/></linearGradient>
+        <mask id="hf-fade" maskUnits="userSpaceOnUse"><rect id="hf-fade-a" fill="url(#hf-fade-grad)"/><rect id="hf-fade-b" fill="#fff"/></mask>
+      </defs>
+      <g mask="url(#hf-fade)">
+        <g class="wires"></g>
+        <g class="vias"></g>
+        <g class="dests"></g>
+        <g class="sparks"></g>
+        <g class="lit"></g>
+      </g>
+    </svg>
+  </div>
+</section>
 
 <!-- METRICS / PILARES -->
 <div class="wrap"><div class="metrics reveal-group">
@@ -884,5 +782,129 @@
 })();
 </script>
 
+<script>
+/* Franja de circuito del hero: 10 pistas de izquierda a derecha. Cada haz recorre su pista y enciende
+   el destino al llegar. Se recalcula al cambiar el tamaño de la ventana. */
+(function(){
+  const N = 10;          // número de pistas
+  const T = 7000;        // ciclo de cada pista (ms)
+  const SPEED = 0.42;    // velocidad del haz (px/ms)
+  const LD = 38;         // longitud del haz (px)
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const hero = document.getElementById('top');
+  const svg = document.getElementById('hero-flow');
+  if (!hero || !svg || !svg.animate) return;
+  const wrap = hero.querySelector('.wrap'), flow = svg.parentNode;
+  const G = n => svg.querySelector('.' + n);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // las 3 pistas de arriba suben un carril (y la primera otro más); las 3 de abajo bajan igual; las 4 centrales van rectas
+  const X0  = [.05,.02,.07,0,.04,.01,.06,.03,.08,.02];          // inicio escalonado (fracción del ancho)
+  const END = [.74,.90,.80,.97,.70,1,.85,.93,.77,.88];          // destino
+  // derivaciones: salen de la última recta de una pista y ocupan el carril que dejan libre los quiebros
+  const branches = [ {parent:3, dir:-1}, {parent:1, dir:-1}, {parent:6, dir:1}, {parent:8, dir:1} ];
+
+  const polyLen = pts => pts.slice(1).reduce((s, p, i) => s + Math.hypot(p[0] - pts[i][0], p[1] - pts[i][1]), 0);
+  const toD = pts => 'M' + pts.map(p => p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' L');
+  function mk(tag, attrs, parent){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
+
+  function build(){
+    ['wires','vias','dests','sparks','lit'].forEach(n => G(n).replaceChildren());
+    const fr = flow.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+    const W = fr.width, H = fr.height;
+    if (!W || !H) return;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+    // desde el borde izquierdo de la pantalla hasta el borde derecho del contenido (alineado con «Hablemos»)
+    const rx0 = 0, rx1 = Math.min(W - 16, wr.right - 28 - fr.left);
+    const RW = rx1 - rx0, X = f => rx0 + f * RW;
+    const S = (H - 24) / (N + 3);                 // 10 carriles + el desplazamiento de los quiebros
+    const cy = H / 2, laneY = i => cy + (i - (N - 1) / 2) * S;
+
+    // fundido de entrada: en escritorio hasta el borde izquierdo del texto; en móvil, un tramo corto
+    const xf = Math.max(60, Math.min(wr.left + 28 - fr.left, RW * .25));
+    const fg = svg.getElementById('hf-fade-grad'), fa = svg.getElementById('hf-fade-a'), fb = svg.getElementById('hf-fade-b');
+    fg.setAttribute('x1', rx0); fg.setAttribute('x2', xf);
+    Object.entries({x:rx0, y:0, width:xf - rx0, height:H}).forEach(([k, v]) => fa.setAttribute(k, v));
+    Object.entries({x:xf, y:0, width:W, height:H}).forEach(([k, v]) => fb.setAttribute(k, v));
+
+    // geometría
+    const traces = [];
+    for (let lane = 0; lane < N; lane++){
+      const jogs = [];
+      if (lane <= 2)     jogs.push([X(.36), -1]);
+      if (lane === 0)    jogs.push([X(.54), -1]);
+      if (lane >= N - 3) jogs.push([X(.39), 1]);
+      if (lane === N-1)  jogs.push([X(.57), 1]);
+      let y = laneY(lane);
+      const pts = [[X(X0[lane]), y]];
+      for (const [jx, dl] of jogs){ pts.push([jx, y]); y += dl * S; pts.push([jx + S, y]); }
+      pts.push([X(END[lane]), y]);
+      traces.push({pts, len: polyLen(pts), delay: ((lane * 2.37) % 7) * 1000 - T});
+    }
+    const all = traces.slice();
+    for (const b of branches){
+      const p = traces[b.parent], [px, py] = p.pts[p.pts.length - 1], bx = X(.63), ny = py + b.dir * S;
+      const pts = [[bx, py], [bx + S, ny], [bx + S + RW * .09, ny]];
+      all.push({pts, len: polyLen(pts), delay: p.delay + (p.len - (px - bx)) / SPEED});
+      mk('circle', {cx:bx, cy:py, r:2.3}, G('vias'));
+    }
+
+    // vías intermedias: pocas, solo sobre tramos rectos
+    const flatY = (pts, x) => {
+      for (let i = 1; i < pts.length; i++){
+        const [ax, ay] = pts[i-1], [bx, by] = pts[i];
+        if (ay === by && x > Math.min(ax, bx) + 14 && x < Math.max(ax, bx) - 14) return ay;
+      }
+      return null;
+    };
+    traces.forEach((t, i) => {
+      [.22, .46, .70].forEach((f, k) => {
+        if ((i + k) % 2) return;
+        const x = X(f + (((i * 37) % 9) - 4) / 100), y = flatY(t.pts, x);
+        if (y === null) return;
+        if ((i + k) % 4 === 0) mk('rect', {x:x - 2.2, y:y - 2.2, width:4.4, height:4.4, transform:`rotate(45 ${x} ${y})`}, G('vias'));
+        else mk('circle', {cx:x, cy:y, r:2}, G('vias'));
+      });
+    });
+
+    // dibujo + animación
+    const rNode = Math.max(3, Math.min(4.5, S * .3)), rHalo = rNode * 3.6;
+    for (const t of all){
+      const d = toD(t.pts), [ex, ey] = t.pts[t.pts.length - 1];
+      mk('path', {d}, G('wires'));
+      mk('circle', {cx:ex, cy:ey, r:rNode, class:'dest-off'}, G('dests'));
+      const lit = mk('g', {}, G('lit'));
+      mk('circle', {cx:ex, cy:ey, r:rHalo, fill:'url(#hf-halo)'}, lit);
+      mk('circle', {cx:ex, cy:ey, r:rNode, fill:'url(#hf-gold)'}, lit);
+      if (reduce) continue;
+
+      const sp = mk('path', {d, 'stroke-dasharray':`${LD} ${t.len + LD + 20}`}, G('sparks'));
+      const tr = (t.len + LD) / SPEED;
+      sp.animate([
+        {strokeDashoffset: LD,     opacity: 1, offset: 0},
+        {strokeDashoffset: -t.len, opacity: 1, offset: Math.min(tr / T, .98)},
+        {strokeDashoffset: -t.len, opacity: 0, offset: 1},
+      ], {duration: T, delay: t.delay, iterations: Infinity});
+
+      // destino apagado hasta que llega la cabeza del haz
+      const a = Math.min((t.len / SPEED) / T, .6);
+      lit.animate([
+        {opacity: 0, transform: 'scale(.6)',   offset: 0},
+        {opacity: 0, transform: 'scale(.6)',   offset: a},
+        {opacity: 1, transform: 'scale(1.15)', offset: a + 0.015},
+        {opacity: 1, transform: 'scale(1)',    offset: a + 0.09},
+        {opacity: 0, transform: 'scale(1)',    offset: Math.min(a + 0.34, 0.99)},
+        {opacity: 0, transform: 'scale(1)',    offset: 1},
+      ], {duration: T, delay: t.delay, iterations: Infinity});
+    }
+  }
+
+  let rt;
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(build);
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(build, 150); });
+})();
+</script>
 </body>
 </html>
