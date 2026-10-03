@@ -130,6 +130,19 @@
   .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
   /* franja de circuito: la dibuja el script del final; el haz va de izquierda a derecha
      y cada destino se enciende solo cuando le llega */
+  /* pantallas grandes: el contenido acompana al ancho real, no se queda en una columna */
+  @media(min-width:1280px){
+    .wrap{max-width:1320px}
+    .hero-copy{max-width:1000px}
+    .hero h1{font-size:72px}
+    .hero p.lead{font-size:20px;max-width:760px}
+    .shead{max-width:720px}
+  }
+  @media(min-width:1800px){
+    .wrap{max-width:1460px}
+    .hero-copy{max-width:1120px}
+    .hero h1{font-size:84px}
+  }
   .hero .flow{position:relative;height:190px;margin-top:24px;pointer-events:none}
   @media(max-width:600px){.hero .flow{height:170px;margin-top:20px}}
   .flow svg{display:block;width:100%;height:100%}
