@@ -13,7 +13,7 @@ Veris Automatia ("Veris = veracidad") ayuda a empresas a conectar sus sistemas, 
 - Formación y soporte: el equipo del cliente aprende a operar lo implantado, con acompañamiento continuo.
 
 ## Oferta de entrada
-- Radiografía Operativa: diagnóstico de procesos en unas 2 semanas (cuestionario por departamento, entrevistas individuales, análisis de puntos críticos y oportunidades, roadmap priorizado y presentación a dirección). Precio cerrado conocido de antemano. Entregables: informe de diagnóstico, mapa de la operativa actual, análisis de riesgos, roadmap visual y presentación ejecutiva.
+- Radiografía Operativa: diagnóstico de procesos en unas 2 semanas (cuestionario por departamento, entrevistas individuales, análisis de puntos críticos y oportunidades, roadmap priorizado y presentación a dirección). Desde 2.500 € + IVA; precio cerrado para cada caso tras la primera reunión, antes de empezar. Entregables: informe de diagnóstico, mapa de la operativa actual, análisis de riesgos, roadmap visual y presentación ejecutiva.
 
 ## Soluciones productizadas
 - Recepcionista 24/7 por WhatsApp: asistente de IA que atiende al instante, registra clientes, agenda citas en el calendario y envía recordatorios automáticos 24 h y 1 h antes; escala a una persona cuando hace falta. https://verisautomatia.com/servicios/recepcionista-whatsapp.html
