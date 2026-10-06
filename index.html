@@ -709,6 +709,24 @@
 (function(){
   var form = document.getElementById('contact-form');
   if(!form) return;
+
+  // Origen del contacto: utm_source/utm_content del enlace por el que entró y el dominio que le trajo.
+  // Se guardan en la pestaña (sessionStorage) para no perderlos si navega antes de escribir. Sin cookies.
+  var origen = {};
+  try { origen = JSON.parse(sessionStorage.getItem('veris_origen') || '{}'); } catch(e){}
+  try {
+    var qs = new URLSearchParams(location.search);
+    if(qs.get('utm_source') || qs.get('utm_content')){
+      origen.utm_source = qs.get('utm_source') || '';
+      origen.utm_content = qs.get('utm_content') || '';
+    }
+    if(!origen.referrer && document.referrer){
+      var host = new URL(document.referrer).hostname;
+      if(host && host !== location.hostname) origen.referrer = host;
+    }
+    sessionStorage.setItem('veris_origen', JSON.stringify(origen));
+  } catch(e){}
+
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function setErr(name, msg){
@@ -739,7 +757,10 @@
       name: form.elements.name.value,
       email: form.elements.email.value,
       message: form.elements.message.value,
-      web: form.elements.web.value
+      web: form.elements.web.value,
+      utm_source: origen.utm_source || '',
+      utm_content: origen.utm_content || '',
+      referrer: origen.referrer || ''
     };
     btn.disabled = true;
     st.textContent = 'Enviando…';
