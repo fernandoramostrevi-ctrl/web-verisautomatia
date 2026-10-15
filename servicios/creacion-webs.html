@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; require-trusted-types-for 'script'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Creación de webs y SEO — Veris Automatia</title>
 <meta name="description" content="Webs profesionales que cargan al instante y posicionan desde el día uno: nuevas desde cero o rediseñadas sobre la tuya, con SEO on-page completo y sin cuotas de mantenimiento obligatorias.">
 <link rel="canonical" href="https://verisautomatia.com/servicios/creacion-webs.html">
@@ -309,22 +311,7 @@
   <span class="muted">© 2026 Veris Automatia</span>
 </div></footer>
 
-<script>
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var targets = document.querySelectorAll('.reveal, .reveal-group');
-  if(reduce || !('IntersectionObserver' in window)){
-    targets.forEach(function(el){ el.classList.add('is-in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
-    });
-  }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
-  targets.forEach(function(el){ io.observe(el); });
-})();
-</script>
+<script src="/js/servicio.js"></script>
 
 </body>
 </html>

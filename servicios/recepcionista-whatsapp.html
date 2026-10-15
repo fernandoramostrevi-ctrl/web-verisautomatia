@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; require-trusted-types-for 'script'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Agentes inteligentes 24/7 — Veris Automatia</title>
 <meta name="description" content="Agentes de IA que atienden, deciden y actúan por ti dentro de los límites que marcas. El caso más común: el que atiende tu WhatsApp, registra clientes y agenda citas, 24 horas, con tus datos bajo control.">
 <link rel="canonical" href="https://verisautomatia.com/servicios/recepcionista-whatsapp.html">
@@ -364,42 +366,7 @@
   <span class="muted">© 2026 Veris Automatia</span>
 </div></footer>
 
-<script>
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var targets = document.querySelectorAll('.reveal, .reveal-group');
-  if(reduce || !('IntersectionObserver' in window)){
-    targets.forEach(function(el){ el.classList.add('is-in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
-    });
-  }, {threshold:.14, rootMargin:'0px 0px -8% 0px'});
-  targets.forEach(function(el){ io.observe(el); });
-})();
-
-// Reproductor de la demo: play manual (lleva sonido), luego controles nativos
-(function(){
-  var player = document.querySelector('.demo-player');
-  if(!player) return;
-  var video = player.querySelector('video');
-  var btn = player.querySelector('.demo-play');
-  function start(){
-    player.classList.add('is-playing');
-    video.setAttribute('controls','');
-    var p = video.play();
-    if(p && p.catch){ p.catch(function(){}); }
-  }
-  btn.addEventListener('click', start);
-  video.addEventListener('ended', function(){
-    video.removeAttribute('controls');
-    player.classList.remove('is-playing');
-    video.load(); // restaura el póster
-  });
-})();
-</script>
+<script src="/js/servicio.js"></script>
 
 </body>
 </html>
