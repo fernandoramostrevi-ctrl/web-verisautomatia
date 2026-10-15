@@ -294,6 +294,17 @@
   .cform .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray-2);cursor:pointer;text-align:left}
   .cform .consent input{width:auto;margin-top:3px;flex:0 0 auto}
   .cform .consent a{color:var(--gold);text-decoration:underline}
+  .cform .svc{border:0;margin:0;padding:0;min-width:0}
+  .cform .svc legend{font-size:13px;color:var(--gray-2);margin-bottom:8px;padding:0}
+  .cform .svc legend span,.cform .opt{color:var(--gray)}
+  .cform .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .cform .svc-grid label{display:flex;gap:9px;align-items:center;margin:0;padding:10px 12px;background:var(--surface);
+    border:1px solid var(--line);border-radius:10px;font-size:14px;color:var(--gray-2);cursor:pointer}
+  .cform .svc-grid input{width:auto;margin:0;flex:0 0 auto;accent-color:var(--gold)}
+  .cform .svc-grid label:has(input:checked){border-color:rgba(201,162,74,.55);color:inherit}
+  .cform .svc-grid label:has(input:focus-visible){outline:2px solid rgba(201,162,74,.55);outline-offset:2px}
+  .cform .svc[aria-invalid="true"] .svc-grid label{border-color:#e09a9a}
+  @media (max-width:520px){.cform .svc-grid{grid-template-columns:1fr}}
   .cform .form-note{font-size:12.5px;color:var(--gray);margin-top:2px}
 </style>
 
@@ -638,9 +649,21 @@
         <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" placeholder="nombre@empresa.com" required aria-describedby="err-email">
         <p class="field-err" id="err-email" role="alert"></p>
       </div>
+      <fieldset class="svc" aria-describedby="err-services">
+        <legend>¿Qué te interesa? <span>(puedes marcar varios)</span></legend>
+        <div class="svc-grid">
+          <label><input type="checkbox" name="services" value="Recepcionista WhatsApp"><span>Recepcionista WhatsApp</span></label>
+          <label><input type="checkbox" name="services" value="Automatización de procesos"><span>Automatización de procesos</span></label>
+          <label><input type="checkbox" name="services" value="Aplicaciones a medida"><span>Aplicaciones a medida</span></label>
+          <label><input type="checkbox" name="services" value="Creación de webs"><span>Creación de webs</span></label>
+          <label><input type="checkbox" name="services" value="Radiografía operativa"><span>Radiografía operativa</span></label>
+          <label><input type="checkbox" name="services" value="Otro / no lo sé"><span>Otro / no lo sé</span></label>
+        </div>
+        <p class="field-err" id="err-services" role="alert"></p>
+      </fieldset>
       <div>
-        <label for="cf-message">¿Qué te gustaría automatizar?</label>
-        <textarea id="cf-message" name="message" maxlength="4000" required aria-describedby="err-message"></textarea>
+        <label for="cf-message">Cuéntanos más <span class="opt">(opcional)</span></label>
+        <textarea id="cf-message" name="message" maxlength="4000" aria-describedby="err-message"></textarea>
         <p class="field-err" id="err-message" role="alert"></p>
       </div>
       <div class="hp" aria-hidden="true">
@@ -736,11 +759,20 @@
     if(field && field.setAttribute) field.setAttribute('aria-invalid', msg ? 'true' : 'false');
   }
 
+  function selectedServices(){
+    return Array.prototype.map.call(form.querySelectorAll('input[name="services"]:checked'), function(i){ return i.value; });
+  }
+
   function validate(){
     var firstBad = null;
     if(!form.elements.name.value.trim()){ setErr('name','Dinos tu nombre.'); firstBad = firstBad || form.elements.name; } else setErr('name','');
     if(!EMAIL_RE.test(form.elements.email.value.trim())){ setErr('email','Introduce un email válido (p. ej. nombre@empresa.com).'); firstBad = firstBad || form.elements.email; } else setErr('email','');
-    if(form.elements.message.value.trim().length < 10){ setErr('message','Cuéntanos un poco más (al menos 10 caracteres).'); firstBad = firstBad || form.elements.message; } else setErr('message','');
+    var svc = form.querySelector('.svc');
+    if(!selectedServices().length){
+      document.getElementById('err-services').textContent = 'Marca al menos una opción.';
+      svc.setAttribute('aria-invalid','true');
+      firstBad = firstBad || form.querySelector('input[name="services"]');
+    } else { document.getElementById('err-services').textContent = ''; svc.setAttribute('aria-invalid','false'); }
     if(!form.elements.consent.checked){ setErr('consent','Necesitamos tu consentimiento para responderte.'); firstBad = firstBad || form.elements.consent; } else setErr('consent','');
     if(firstBad && firstBad.focus) firstBad.focus();
     return !firstBad;
@@ -757,6 +789,7 @@
       name: form.elements.name.value,
       email: form.elements.email.value,
       message: form.elements.message.value,
+      services: selectedServices(),
       web: form.elements.web.value,
       utm_source: origen.utm_source || '',
       utm_content: origen.utm_content || '',
@@ -775,6 +808,8 @@
         st.textContent = 'Mensaje enviado. Te respondemos en menos de 24 h laborables.';
         form.reset();
         ['name','email','message','consent'].forEach(function(n){ setErr(n,''); });
+        document.getElementById('err-services').textContent = '';
+        form.querySelector('.svc').setAttribute('aria-invalid','false');
       } else {
         st.className = 'form-status err';
         st.textContent = 'No se pudo enviar. Revisa los datos o escríbenos a vaia@verisautomatia.com';
