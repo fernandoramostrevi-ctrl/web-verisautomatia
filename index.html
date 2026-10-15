@@ -297,14 +297,24 @@
   .cform .svc{border:0;margin:0;padding:0;min-width:0}
   .cform .svc legend{font-size:13px;color:var(--gray-2);margin-bottom:8px;padding:0}
   .cform .svc legend span,.cform .opt{color:var(--gray)}
-  .cform .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .cform .svc-grid label{display:flex;gap:9px;align-items:center;margin:0;padding:10px 12px;background:var(--surface);
-    border:1px solid var(--line);border-radius:10px;font-size:14px;color:var(--gray-2);cursor:pointer}
-  .cform .svc-grid input{width:auto;margin:0;flex:0 0 auto;accent-color:var(--gold)}
-  .cform .svc-grid label:has(input:checked){border-color:rgba(201,162,74,.55);color:inherit}
-  .cform .svc-grid label:has(input:focus-visible){outline:2px solid rgba(201,162,74,.55);outline-offset:2px}
-  .cform .svc[aria-invalid="true"] .svc-grid label{border-color:#e09a9a}
-  @media (max-width:520px){.cform .svc-grid{grid-template-columns:1fr}}
+  .cform .ms{position:relative}
+  .cform .ms-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:left;
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--gray);
+    font-family:inherit;font-size:15px;cursor:pointer;transition:border-color .2s var(--ease-out)}
+  .cform .ms-btn.has-value{color:var(--on-dark)}
+  .cform .ms-btn:focus-visible,.cform .ms-btn[aria-expanded="true"]{outline:none;border-color:rgba(201,162,74,.55)}
+  .cform .ms-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cform .ms-btn svg{flex:0 0 auto;transition:transform .2s var(--ease-out)}
+  .cform .ms-btn[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .cform .ms-panel{position:absolute;z-index:20;left:0;right:0;top:calc(100% + 6px);background:var(--surface);
+    border:1px solid rgba(201,162,74,.35);border-radius:10px;padding:6px;box-shadow:0 14px 34px rgba(0,0,0,.45)}
+  .cform .ms-panel[hidden]{display:none}
+  .cform .ms-panel label{display:flex;gap:10px;align-items:center;margin:0;padding:10px;border-radius:7px;
+    font-size:14.5px;color:var(--gray-2);cursor:pointer}
+  .cform .ms-panel label:hover,.cform .ms-panel label:has(input:focus-visible){background:rgba(201,162,74,.08);color:var(--on-dark)}
+  .cform .ms-panel label:has(input:checked){color:var(--on-dark)}
+  .cform .ms-panel input{width:16px;height:16px;margin:0;padding:0;flex:0 0 auto;accent-color:var(--gold)}
+  .cform .svc[aria-invalid="true"] .ms-btn{border-color:#e09a9a}
   .cform .form-note{font-size:12.5px;color:var(--gray);margin-top:2px}
 </style>
 
@@ -650,14 +660,20 @@
         <p class="field-err" id="err-email" role="alert"></p>
       </div>
       <fieldset class="svc" aria-describedby="err-services">
-        <legend>¿Qué te interesa? <span>(puedes marcar varios)</span></legend>
-        <div class="svc-grid">
-          <label><input type="checkbox" name="services" value="Recepcionista WhatsApp"><span>Recepcionista WhatsApp</span></label>
-          <label><input type="checkbox" name="services" value="Automatización de procesos"><span>Automatización de procesos</span></label>
-          <label><input type="checkbox" name="services" value="Aplicaciones a medida"><span>Aplicaciones a medida</span></label>
-          <label><input type="checkbox" name="services" value="Creación de webs"><span>Creación de webs</span></label>
-          <label><input type="checkbox" name="services" value="Radiografía operativa"><span>Radiografía operativa</span></label>
-          <label><input type="checkbox" name="services" value="Otro / no lo sé"><span>Otro / no lo sé</span></label>
+        <legend id="svc-legend">¿Qué te interesa? <span>(puedes marcar varios)</span></legend>
+        <div class="ms">
+          <button type="button" class="ms-btn" id="svc-btn" aria-haspopup="true" aria-expanded="false" aria-controls="svc-panel">
+            <span class="ms-text">Selecciona una o varias opciones</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="ms-panel" id="svc-panel" hidden>
+            <label><input type="checkbox" name="services" value="Recepcionista WhatsApp"><span>Recepcionista WhatsApp</span></label>
+            <label><input type="checkbox" name="services" value="Automatización de procesos"><span>Automatización de procesos</span></label>
+            <label><input type="checkbox" name="services" value="Aplicaciones a medida"><span>Aplicaciones a medida</span></label>
+            <label><input type="checkbox" name="services" value="Creación de webs"><span>Creación de webs</span></label>
+            <label><input type="checkbox" name="services" value="Radiografía operativa"><span>Radiografía operativa</span></label>
+            <label><input type="checkbox" name="services" value="Otro / no lo sé"><span>Otro / no lo sé</span></label>
+          </div>
         </div>
         <p class="field-err" id="err-services" role="alert"></p>
       </fieldset>
@@ -763,6 +779,28 @@
     return Array.prototype.map.call(form.querySelectorAll('input[name="services"]:checked'), function(i){ return i.value; });
   }
 
+  // Desplegable de servicios: botón que abre un panel con las casillas. Se cierra con Esc o al pulsar fuera.
+  var msBtn = document.getElementById('svc-btn');
+  var msPanel = document.getElementById('svc-panel');
+  var msText = msBtn.querySelector('.ms-text');
+  function msOpen(open){
+    msPanel.hidden = !open;
+    msBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function msUpdate(){
+    var sel = selectedServices();
+    msText.textContent = !sel.length ? 'Selecciona una o varias opciones'
+      : sel.length <= 2 ? sel.join(', ') : sel.length + ' seleccionados';
+    msBtn.classList.toggle('has-value', sel.length > 0);
+    if(sel.length){ document.getElementById('err-services').textContent = ''; form.querySelector('.svc').setAttribute('aria-invalid','false'); }
+  }
+  msBtn.addEventListener('click', function(){ msOpen(msPanel.hidden); });
+  msPanel.addEventListener('change', msUpdate);
+  document.addEventListener('click', function(e){ if(!msPanel.hidden && !e.target.closest('.ms')) msOpen(false); });
+  form.querySelector('.ms').addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !msPanel.hidden){ msOpen(false); msBtn.focus(); }
+  });
+
   function validate(){
     var firstBad = null;
     if(!form.elements.name.value.trim()){ setErr('name','Dinos tu nombre.'); firstBad = firstBad || form.elements.name; } else setErr('name','');
@@ -771,7 +809,7 @@
     if(!selectedServices().length){
       document.getElementById('err-services').textContent = 'Marca al menos una opción.';
       svc.setAttribute('aria-invalid','true');
-      firstBad = firstBad || form.querySelector('input[name="services"]');
+      firstBad = firstBad || msBtn;
     } else { document.getElementById('err-services').textContent = ''; svc.setAttribute('aria-invalid','false'); }
     if(!form.elements.consent.checked){ setErr('consent','Necesitamos tu consentimiento para responderte.'); firstBad = firstBad || form.elements.consent; } else setErr('consent','');
     if(firstBad && firstBad.focus) firstBad.focus();
@@ -810,6 +848,7 @@
         ['name','email','message','consent'].forEach(function(n){ setErr(n,''); });
         document.getElementById('err-services').textContent = '';
         form.querySelector('.svc').setAttribute('aria-invalid','false');
+        msUpdate(); msOpen(false);
       } else {
         st.className = 'form-status err';
         st.textContent = 'No se pudo enviar. Revisa los datos o escríbenos a vaia@verisautomatia.com';
