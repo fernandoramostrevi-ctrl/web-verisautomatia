@@ -33,7 +33,7 @@
   launcher.setAttribute('aria-expanded', 'false');
   launcher.setAttribute('aria-controls', 'vchat-panel');
   launcher.appendChild(el('span', 'vchat-launcher-ico', '?'));
-  launcher.appendChild(el('span', 'vchat-launcher-txt', '¿Dudas?'));
+  launcher.appendChild(el('span', 'vchat-launcher-txt', '¿Tienes alguna duda?'));
 
   var panel = el('section', 'vchat-panel');
   panel.id = 'vchat-panel';
