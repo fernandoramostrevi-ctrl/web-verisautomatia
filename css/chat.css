@@ -1,0 +1,49 @@
+/* Asistente de FAQ (js/chat.js). Usa los tokens de la página con valores de respaldo. */
+.vchat-launcher{position:fixed;right:20px;bottom:20px;z-index:60;display:inline-flex;align-items:center;gap:8px;
+  padding:11px 16px 11px 12px;border-radius:999px;border:1px solid var(--gold,#C9A24A);
+  background:var(--surface,#16181C);color:var(--on-dark,#ECEDEF);font:500 15px/1 "Outfit",system-ui,sans-serif;cursor:pointer;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);transition:transform .2s cubic-bezier(.23,1,.32,1),background .2s}
+.vchat-launcher:hover{background:var(--surface-2,#1C1F25);transform:translateY(-2px)}
+.vchat-launcher:focus-visible,.vchat-close:focus-visible,.vchat-send:focus-visible,.vchat-chip:focus-visible{outline:2px solid var(--gold,#C9A24A);outline-offset:2px}
+.vchat-launcher-ico{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;
+  background:var(--gold,#C9A24A);color:var(--ink,#0E0F12);font-weight:700;font-size:14px}
+.vchat-launcher.is-open{opacity:0;pointer-events:none}
+
+.vchat-panel{position:fixed;right:20px;bottom:20px;z-index:61;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 40px));
+  display:flex;flex-direction:column;background:var(--surface,#16181C);color:var(--on-dark,#ECEDEF);
+  border:1px solid var(--line,#282C33);border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.55);overflow:hidden;
+  font-family:"Outfit",system-ui,sans-serif}
+.vchat-panel[hidden]{display:none}
+.vchat-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line,#282C33)}
+.vchat-titles{display:flex;flex-direction:column;line-height:1.25}
+.vchat-titles strong{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:16px}
+.vchat-sub{font-size:13px;color:var(--gray,#8A909A)}
+.vchat-close{width:34px;height:34px;border-radius:8px;border:0;background:transparent;color:var(--gray-2,#B6BBC3);font-size:24px;line-height:1;cursor:pointer}
+.vchat-close:hover{background:var(--surface-2,#1C1F25);color:var(--on-dark,#ECEDEF)}
+
+.vchat-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;overscroll-behavior:contain}
+.vchat-msg{max-width:86%;padding:10px 13px;border-radius:12px;font-size:15px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.vchat-bot{align-self:flex-start;background:var(--surface-2,#1C1F25);border:1px solid var(--line,#282C33);border-bottom-left-radius:4px}
+.vchat-user{align-self:flex-end;background:var(--gold,#C9A24A);color:var(--ink,#0E0F12);border-bottom-right-radius:4px}
+.vchat-typing{color:var(--gray,#8A909A);font-style:italic}
+
+.vchat-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 10px}
+.vchat-chips[hidden]{display:none}
+.vchat-chip{padding:7px 11px;border-radius:999px;border:1px solid var(--line,#282C33);background:transparent;color:var(--gray-2,#B6BBC3);
+  font:inherit;font-size:13px;cursor:pointer;transition:border-color .2s,color .2s}
+.vchat-chip:hover{border-color:var(--gold,#C9A24A);color:var(--on-dark,#ECEDEF)}
+
+.vchat-form{display:flex;gap:8px;align-items:flex-end;padding:10px 12px;border-top:1px solid var(--line,#282C33)}
+.vchat-input{flex:1;resize:none;min-height:42px;max-height:120px;padding:10px 12px;border-radius:10px;border:1px solid var(--line,#282C33);
+  background:var(--ink,#0E0F12);color:var(--on-dark,#ECEDEF);font:inherit;font-size:16px;line-height:1.4}
+.vchat-input:focus{outline:none;border-color:var(--gold,#C9A24A)}
+.vchat-send{height:42px;padding:0 14px;border-radius:10px;border:0;background:var(--gold,#C9A24A);color:var(--ink,#0E0F12);font:inherit;font-weight:600;cursor:pointer}
+.vchat-send:disabled,.vchat-input:disabled{opacity:.55;cursor:default}
+.vchat-aviso{margin:0;padding:0 14px 12px;font-size:11.5px;line-height:1.45;color:var(--gray,#8A909A)}
+.vchat-aviso a{color:var(--gray-2,#B6BBC3)}
+
+@media (max-width:480px){
+  .vchat-launcher{right:16px;bottom:16px}
+  .vchat-panel{right:0;bottom:0;width:100vw;height:100dvh;border-radius:0;border:0}
+}
+@media (prefers-reduced-motion:reduce){.vchat-launcher{transition:none}}

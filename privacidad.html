@@ -143,6 +143,7 @@
       <li><a href="#reclamacion">Reclamación ante la autoridad de control</a></li>
       <li><a href="#seguridad">Seguridad de los datos</a></li>
       <li><a href="#cookies">Cookies, almacenamiento en el navegador y tipografías</a></li>
+      <li><a href="#asistente">Asistente de chat con inteligencia artificial</a></li>
       <li><a href="#menores">Menores de edad</a></li>
       <li><a href="#cambios">Cambios en esta política</a></li>
     </ol>
@@ -234,6 +235,7 @@
     <li><strong>Gmail (Google LLC, Estados Unidos).</strong> El aviso por correo se envía desde una cuenta de Gmail, que conserva una copia del mensaje enviado. Google LLC declara estar certificada en el marco <strong>EU-US Data Privacy Framework</strong>, que cuenta con decisión de adecuación de la Comisión Europea, y utilizar <strong>Cláusulas Contractuales Tipo</strong> cuando esa decisión no se aplica. Más información en la <a href="https://policies.google.com/privacy/frameworks" target="_blank" rel="noopener">página de marcos de transferencia de Google</a>.</li>
     <li><strong>Telegram (Telegram Messenger Inc.).</strong> Según su política de privacidad, los datos de las cuentas registradas en el EEE se almacenan en centros de datos de los <strong>Países Bajos</strong>; Telegram puede compartirlos con sociedades de su grupo en las Islas Vírgenes Británicas y Dubái, en cuyo caso declara aplicar las <strong>Cláusulas Contractuales Tipo</strong> aprobadas por la Comisión Europea. Su representante en la UE a efectos del RGPD es European Data Protection Office (EDPO). Más información en la <a href="https://telegram.org/privacy" target="_blank" rel="noopener">política de privacidad de Telegram</a>.</li>
   </ul>
+  <p>Los mensajes que escribes en el <strong>asistente de chat</strong> se envían a <strong>OpenAI (OpenAI, L.L.C., Estados Unidos)</strong> para generar la respuesta, lo que constituye una <strong>transferencia internacional de datos</strong>. Más información en la <a href="https://openai.com/policies/privacy-policy/" target="_blank" rel="noopener">política de privacidad de OpenAI</a>.</p>
   <p>El procesamiento del formulario y el registro de contactos se realizan con instancias de <em>n8n</em> y <em>Baserow</em> autoalojadas en infraestructura propia del responsable. Cuando esté confirmado que esa infraestructura se ubica íntegramente dentro del Espacio Económico Europeo, este tratamiento no implicará transferencia internacional alguna.</p>
 
   <!-- 7 -->
@@ -262,15 +264,27 @@
   <h2 id="cookies">10. Cookies, almacenamiento en el navegador y tipografías</h2>
   <p><strong>Este sitio web no utiliza cookies.</strong> No empleamos herramientas como Google Analytics, Google Tag Manager ni píxeles de redes sociales, y no instalamos cookies con fines publicitarios o de elaboración de perfiles.</p>
   <p><strong>Almacenamiento temporal en tu navegador.</strong> Cuando llegas a la web, se guarda en el almacenamiento de sesión de tu navegador (<em>sessionStorage</em>, bajo la clave <code>veris_origen</code>) el origen de tu visita: los parámetros de campaña <em>utm_source</em> y <em>utm_content</em> del enlace, si los lleva, y el dominio de la web desde la que llegaste. Es un dato propio del sitio, no lo leen terceros, <strong>se borra automáticamente al cerrar la pestaña</strong> y solo se nos envía si decides enviar el formulario de contacto. Sirve para no perder ese dato si navegas por varias páginas antes de escribirnos.</p>
-  <p>Las tipografías web del sitio se sirven <strong>desde el propio dominio</strong> (están autoalojadas). Por tanto, el sitio <strong>no realiza peticiones a servidores de terceros para cargarlas</strong> y <strong>no se envía la dirección IP del visitante a Google</strong> ni a ningún otro proveedor externo con ese fin. Salvo el envío del formulario cuando tú decides hacerlo, el sitio no realiza otras peticiones a servicios externos de terceros.</p>
+  <p>Si usas el asistente de chat, se guarda también en <em>sessionStorage</em>, bajo la clave <code>veris_chat_sid</code>, un identificador aleatorio de sesión que no te identifica y se borra al cerrar la pestaña. Las conversaciones no se guardan en tu navegador.</p>
+  <p>Las tipografías web del sitio se sirven <strong>desde el propio dominio</strong> (están autoalojadas). Por tanto, el sitio <strong>no realiza peticiones a servidores de terceros para cargarlas</strong> y <strong>no se envía la dirección IP del visitante a Google</strong> ni a ningún otro proveedor externo con ese fin. Salvo el envío del formulario y los mensajes del asistente de chat, cuando tú decides hacerlo, el sitio no realiza otras peticiones a servicios externos de terceros.</p>
   <p>Si en el futuro se instalara analítica o cualquier cookie no estrictamente necesaria, se añadiría aquí la información detallada de cada cookie (nombre, finalidad, titular y duración), se implementaría un banner de consentimiento previo conforme a la LSSI-CE y al RGPD y se publicaría una política de cookies específica.</p>
 
   <!-- 11 -->
-  <h2 id="menores">11. Menores de edad</h2>
-  <p>Este sitio web y sus servicios están dirigidos a empresas y profesionales. No están destinados a menores de edad y no recogemos datos de menores de forma consciente. Si crees que un menor nos ha facilitado datos personales, contáctanos en <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a> y los suprimiremos.</p>
+  <h2 id="asistente">11. Asistente de chat con inteligencia artificial</h2>
+  <p>El sitio incluye un asistente de chat que responde dudas generales sobre Veris Automatia y sus servicios. Es un sistema automático basado en un modelo de lenguaje: puede equivocarse, y sus respuestas no son una oferta ni un compromiso contractual.</p>
+  <ul>
+    <li><strong>Qué se trata:</strong> el texto que escribes en el chat y un identificador aleatorio de sesión generado en tu navegador, que no te identifica. <strong>No te pedimos datos personales</strong> y te pedimos que no los incluyas; si quieres que te contactemos, usa el formulario.</li>
+    <li><strong>Cómo se procesa:</strong> tu mensaje se envía por HTTPS a la instancia propia de <em>n8n</em>, que aplica filtros automáticos (longitud, límite de mensajes, bloqueo de datos bancarios y claves) y lo remite a <strong>OpenAI</strong> (OpenAI, L.L.C., Estados Unidos) a través de su API para generar la respuesta.</li>
+    <li><strong>Finalidad y base jurídica:</strong> responder a tu consulta, a petición tuya — artículo 6.1.b) del RGPD (medidas precontractuales a solicitud del interesado) y nuestro interés legítimo en atender consultas de forma ágil — artículo 6.1.f).</li>
+    <li><strong>Conservación:</strong> no guardamos un historial de las conversaciones. Para dar coherencia a la charla, el servidor mantiene en memoria los últimos mensajes de la sesión, que se pierden al reiniciarse el servicio. Si una petición falla, el registro técnico del error, que puede contener el mensaje, se elimina automáticamente en un plazo aproximado de dos semanas. El contador de mensajes por sesión, que solo contiene el identificador aleatorio, se purga periódicamente.</li>
+    <li><strong>OpenAI</strong> trata el contenido conforme a sus condiciones para clientes de la API. Su tratamiento implica una transferencia internacional de datos (ver apartado 6).</li>
+  </ul>
 
   <!-- 12 -->
-  <h2 id="cambios">12. Cambios en esta política</h2>
+  <h2 id="menores">12. Menores de edad</h2>
+  <p>Este sitio web y sus servicios están dirigidos a empresas y profesionales. No están destinados a menores de edad y no recogemos datos de menores de forma consciente. Si crees que un menor nos ha facilitado datos personales, contáctanos en <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a> y los suprimiremos.</p>
+
+  <!-- 13 -->
+  <h2 id="cambios">13. Cambios en esta política</h2>
   <p>Podemos actualizar esta política de privacidad para adaptarla a cambios normativos, técnicos o en la forma en que tratamos los datos. La versión vigente será siempre la publicada en esta página, con su fecha de última actualización indicada al inicio. Te recomendamos revisarla periódicamente.</p>
 
   <hr>

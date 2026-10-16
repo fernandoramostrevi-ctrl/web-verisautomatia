@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; require-trusted-types-for 'script'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'self' https://n8n.frautomatia.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; require-trusted-types-for 'script'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Agentes inteligentes 24/7 — Veris Automatia</title>
 <meta name="description" content="Agentes de IA que atienden, deciden y actúan por ti dentro de los límites que marcas. El caso más común: el que atiende tu WhatsApp, registra clientes y agenda citas, 24 horas, con tus datos bajo control.">
@@ -211,6 +211,7 @@
   "availableLanguage": ["Spanish"]
 }
 </script>
+<link rel="stylesheet" href="/css/chat.css">
 </head>
 <body>
 
@@ -367,6 +368,7 @@
 </div></footer>
 
 <script src="/js/servicio.js"></script>
+<script src="/js/chat.js" defer></script>
 
 </body>
 </html>
