@@ -43,7 +43,7 @@
 
   var head = el('header', 'vchat-head');
   var titles = el('div', 'vchat-titles');
-  titles.appendChild(el('strong', null, '¿Tienes alguna duda?'));
+  titles.appendChild(el('strong', null, 'Asistente Veris'));
   titles.appendChild(el('span', 'vchat-sub', 'Respuestas sobre nuestros servicios'));
   var close = el('button', 'vchat-close', '×');
   close.type = 'button';
