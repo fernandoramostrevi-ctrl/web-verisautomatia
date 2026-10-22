@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'self' https://n8n.frautomatia.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; require-trusted-types-for 'script'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>20 peticiones a Claude para tu negocio — Veris Automatia</title>
+<meta name="description" content="Guía gratis con 20 peticiones listas para copiar en Claude: clientes, ventas, números, organización y marketing. La guía del vídeo «¿Qué es Claude?».">
+<link rel="canonical" href="https://verisautomatia.com/recursos/guia-peticiones-claude/">
+<meta name="theme-color" content="#0E0F12">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verisautomatia.com/recursos/guia-peticiones-claude/">
+<meta property="og:site_name" content="Veris Automatia">
+<meta property="og:title" content="20 peticiones a Claude para tu negocio">
+<meta property="og:description" content="20 peticiones listas para copiar, con la fórmula para escribirlas. Gratis.">
+<meta property="og:image" content="https://verisautomatia.com/brand/logo-va/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="20 peticiones a Claude para tu negocio">
+<meta name="twitter:description" content="20 peticiones listas para copiar, con la fórmula para escribirlas. Gratis.">
+<meta name="twitter:image" content="https://verisautomatia.com/brand/logo-va/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/logo-va/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/brand/logo-va/favicon-192.png">
+<link rel="apple-touch-icon" href="/brand/logo-va/apple-touch-icon.png">
+<link rel="preload" href="/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/outfit.woff2') format('woff2');}
+  @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url('/fonts/space-grotesk.woff2') format('woff2');}
+  :root{
+    --ink:#0E0F12; --surface:#16181C; --surface-2:#1C1F25; --line:#282C33;
+    --gold:#C9A24A; --gold-soft:#E0C078; --silver:#C8CCD2; --gray:#8A909A;
+    --gray-2:#B6BBC3; --on-dark:#ECEDEF; --hueso:#F4F2EC;
+    --ease-out:cubic-bezier(.23,1,.32,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--on-dark);font-family:"Outfit",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  @media(max-width:480px){.wrap{padding:0 16px}}
+  .gold{color:var(--gold)}
+  .eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 28px;border-radius:10px;font-weight:600;font-size:16px;cursor:pointer;border:1px solid transparent;font-family:inherit;
+    transition:transform .18s var(--ease-out),filter .18s var(--ease-out),box-shadow .18s var(--ease-out)}
+  .btn:active{transform:scale(.97)}
+  .btn:disabled{opacity:.6;cursor:wait}
+  .btn-gold{background:linear-gradient(135deg,#E0C078,#C9A24A);color:#181206;box-shadow:0 6px 20px rgba(201,162,74,.18)}
+  @media(hover:hover) and (pointer:fine){.btn-gold:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 10px 28px rgba(201,162,74,.28)}}
+
+  /* logo */
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .sym{width:34px;height:32px}
+  .logo .wm{font-family:"Space Grotesk",sans-serif;font-weight:300;letter-spacing:.04em;font-size:20px;color:var(--on-dark)}
+  .logo .wm .ia{color:var(--gold);font-weight:400}
+  header.top{border-bottom:1px solid var(--line)}
+  .top-in{display:flex;align-items:center;height:68px}
+
+  /* hero en dos columnas: propuesta + formulario */
+  .hero{position:relative;padding:56px 0 72px;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;top:-340px;right:-200px;
+    background:radial-gradient(circle,rgba(201,162,74,.14),transparent 62%);pointer-events:none}
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start;position:relative}
+  @media(max-width:880px){.grid{grid-template-columns:1fr;gap:36px}.hero{padding:40px 0 56px}}
+  .hero h1{font-size:clamp(30px,4.2vw,48px);font-weight:600;line-height:1.1;letter-spacing:-.02em;margin:16px 0 18px}
+  .hero p.lead{font-size:17.5px;color:var(--gray-2);margin-bottom:28px;max-width:560px}
+  .hero p.lead strong{color:var(--on-dark);font-weight:600}
+  /* en móvil el formulario queda bajo el primer pantallazo: botón que lleva a él */
+  .jump{display:none;width:100%;margin-bottom:28px}
+  @media(max-width:880px){.jump{display:flex}}
+  #acceso{scroll-margin-top:16px}
+
+  /* qué incluye la guía */
+  .res{background:var(--surface);border:1px solid rgba(201,162,74,.35);border-radius:16px;padding:22px 22px 20px;margin-bottom:26px}
+  .res .tag{display:inline-block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+    border:1px solid rgba(201,162,74,.35);border-radius:999px;padding:3px 10px;margin-bottom:12px;font-weight:600}
+  .res h2{font-size:19px;font-weight:600;margin-bottom:12px}
+
+  .list{list-style:none;display:grid;gap:10px}
+  .list li{display:flex;gap:11px;font-size:15px;color:var(--gray-2)}
+  .list svg{flex:0 0 auto;width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:2;margin-top:2px}
+
+  /* formulario */
+  .panel{background:radial-gradient(120% 120% at 50% 0%,#1b1f26,#121418 70%);border:1px solid var(--line);border-radius:20px;padding:30px 26px}
+  @media(max-width:480px){.panel{padding:26px 18px}}
+  .panel h2{font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+  .panel .sub{font-size:14px;color:var(--gray);margin-bottom:20px}
+  .cform{display:grid;gap:14px}
+  .cform label{font-size:13px;color:var(--gray-2);display:block;margin-bottom:6px}
+  .cform input{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:12px 14px;color:var(--on-dark);font-family:inherit;font-size:16px;transition:border-color .2s var(--ease-out)}
+  .cform input:focus{outline:none;border-color:rgba(201,162,74,.55)}
+  .cform input:focus-visible{outline:2px solid rgba(201,162,74,.55);outline-offset:1px}
+  .cform input[aria-invalid="true"]{border-color:#e09a9a}
+  .cform .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .cform .field-err{font-size:12.5px;color:#e09a9a;margin-top:5px;min-height:0}
+  .cform .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray-2);cursor:pointer;margin:0}
+  .cform .consent input{width:auto;margin-top:3px;flex:0 0 auto;accent-color:var(--gold)}
+  .cform .consent a{color:var(--gold);text-decoration:underline}
+  .cform .opt{color:var(--gray)}
+  .info{font-size:11.5px;color:var(--gray);line-height:1.5}
+  .info a{color:var(--gray-2);text-decoration:underline}
+  .form-status{font-size:14px;min-height:20px}
+  .form-status.err{color:#e09a9a}
+
+  footer{border-top:1px solid var(--line);padding:30px 0 34px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray)}
+  .foot nav{display:flex;gap:20px}
+  .foot nav a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="va" viewBox="14 12 72 84">
+    <path d="M24 86 L50 22 L76 86" fill="none" stroke="#F4F2EC" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M37 60 L48 71 L72 41" fill="none" stroke="#C9A24A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="ok" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+</defs></svg>
+
+<!-- Sin menú ni enlaces de salida: la página tiene un solo objetivo (pedir la guía). -->
+<header class="top"><div class="wrap top-in">
+  <span class="logo"><svg class="sym"><use href="#va"/></svg><span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span></span>
+</div></header>
+
+<main class="hero"><div class="wrap grid">
+
+  <section>
+    <span class="eyebrow">Guía gratis · Claude para tu negocio</span>
+    <h1>20 peticiones a Claude <span class="gold">listas para copiar</span> en tu negocio</h1>
+    <p class="lead">La guía del vídeo «¿Qué es Claude?». Claude es como un compañero muy listo que <strong>no conoce tu empresa hasta que se la cuentas</strong>: estas peticiones ya llevan el contexto que necesita. Cambias lo que va entre [corchetes] por lo tuyo, las pegas y ajustas el resultado.</p>
+    <a class="btn btn-gold jump" href="#acceso">Quiero la guía</a>
+
+    <div class="res">
+      <span class="tag">Qué incluye</span>
+      <h2>20 peticiones a Claude para tu negocio</h2>
+      <ul class="list">
+        <li><svg viewBox="0 0 24 24"><use href="#ok"/></svg><span>La fórmula en tres partes para escribirle a Claude y que te entienda a la primera.</span></li>
+        <li><svg viewBox="0 0 24 24"><use href="#ok"/></svg><span>Cómo preparar a Claude con la ficha de tu empresa y tu forma de escribir.</span></li>
+        <li><svg viewBox="0 0 24 24"><use href="#ok"/></svg><span>20 peticiones para clientes, ventas, números y papeles, organización y marketing.</span></li>
+        <li><svg viewBox="0 0 24 24"><use href="#ok"/></svg><span>Tres reglas antes de pegarle nada: privacidad, datos de clientes y qué revisar siempre.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel" id="acceso" aria-labelledby="f-title">
+    <h2 id="f-title">Recibe la guía gratis</h2>
+    <p class="sub">Déjame tu nombre y tu email y te llevo al grupo de WhatsApp donde la comparto.</p>
+
+    <!-- data-recurso tiene que estar en la lista RECURSOS del workflow de n8n; data-consent-version, en CONSENTIMIENTOS.
+         Los textos de las casillas tienen que ser IGUALES a los de esa versión en el workflow. -->
+    <form class="cform" id="lead-form" novalidate data-recurso="guia-peticiones-claude" data-consent-version="2026-10-20" data-gracias="/recursos/guia-peticiones-claude/gracias.html">
+      <div>
+        <label for="lf-name">Nombre</label>
+        <input id="lf-name" name="name" type="text" autocomplete="given-name" maxlength="120" required aria-describedby="err-name">
+        <p class="field-err" id="err-name" role="alert"></p>
+      </div>
+      <div>
+        <label for="lf-email">Email</label>
+        <input id="lf-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" placeholder="nombre@correo.com" required aria-describedby="err-email">
+        <p class="field-err" id="err-email" role="alert"></p>
+      </div>
+      <!-- Honeypot con nombre que el autocompletado no reconoce (un «web» lo rellenan los gestores de contraseñas). -->
+      <div class="hp" aria-hidden="true">
+        <label for="lf-hp">No rellenar</label>
+        <input id="lf-hp" name="hp_k7q" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <label class="consent" for="lf-consent">
+        <input id="lf-consent" name="consent_privacidad" type="checkbox" required aria-describedby="err-consent_privacidad">
+        <span>He leído la <a href="/privacidad.html#recursos" target="_blank" rel="noopener">política de privacidad</a> y acepto que Veris Automatia trate mis datos para enviarme la invitación al grupo de WhatsApp donde se comparte la guía.</span>
+      </label>
+      <p class="field-err" id="err-consent_privacidad" role="alert"></p>
+      <label class="consent" for="lf-comercial">
+        <input id="lf-comercial" name="consent_comercial" type="checkbox">
+        <span>Quiero recibir también por email novedades y recursos de Veris Automatia. Puedo darme de baja cuando quiera. <span class="opt">(Opcional)</span></span>
+      </label>
+      <button class="btn btn-gold" type="submit">Quiero la guía</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+      <p class="info"><strong>Información básica:</strong> responsable, Fernando Ramos Treviño (Veris Automatia). Finalidad: invitarte al grupo de WhatsApp donde se comparte la guía y, solo si marcas la segunda casilla, enviarte novedades por email. Legitimación: tu consentimiento. No se ceden datos a terceros. Puedes acceder, rectificar o suprimir tus datos en <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a>. Más información en la <a href="/privacidad.html#recursos" target="_blank" rel="noopener">política de privacidad</a>.</p>
+    </form>
+  </section>
+
+</div></main>
+
+<footer><div class="wrap foot">
+  <span>© 2026 Fernando Ramos · Veris Automatia</span>
+  <nav><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a></nav>
+</div></footer>
+
+<script src="/js/recurso-landing.js"></script>
+</body>
+</html>
