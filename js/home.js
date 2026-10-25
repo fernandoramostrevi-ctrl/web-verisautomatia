@@ -42,14 +42,16 @@
   var form = document.getElementById('contact-form');
   if(!form) return;
 
-  // Origen del contacto: utm_source/utm_content del enlace por el que entró y el dominio que le trajo.
+  // Origen del contacto: los utm_* del enlace por el que entró y el dominio que le trajo.
   // Se guardan en la pestaña (sessionStorage) para no perderlos si navega antes de escribir. Sin cookies.
   var origen = {};
   try { origen = JSON.parse(sessionStorage.getItem('veris_origen') || '{}'); } catch(e){}
   try {
     var qs = new URLSearchParams(location.search);
-    if(qs.get('utm_source') || qs.get('utm_content')){
+    if(qs.get('utm_source') || qs.get('utm_content') || qs.get('utm_medium') || qs.get('utm_campaign')){
       origen.utm_source = qs.get('utm_source') || '';
+      origen.utm_medium = qs.get('utm_medium') || '';
+      origen.utm_campaign = qs.get('utm_campaign') || '';
       origen.utm_content = qs.get('utm_content') || '';
     }
     if(!origen.referrer && document.referrer){
@@ -60,6 +62,12 @@
   } catch(e){}
 
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Teléfono: cifras con espacios, guiones, puntos, paréntesis y un + inicial; entre 9 y 15 cifras.
+  function telefonoOk(v){
+    var t = v.trim();
+    var cifras = t.replace(/\D/g, '').length;
+    return /^\+?[\d\s().-]+$/.test(t) && cifras >= 9 && cifras <= 15;
+  }
 
   function setErr(name, msg){
     var field = form.elements[name];
@@ -98,6 +106,7 @@
     var firstBad = null;
     if(!form.elements.name.value.trim()){ setErr('name','Dinos tu nombre.'); firstBad = firstBad || form.elements.name; } else setErr('name','');
     if(!EMAIL_RE.test(form.elements.email.value.trim())){ setErr('email','Introduce un email válido (p. ej. nombre@empresa.com).'); firstBad = firstBad || form.elements.email; } else setErr('email','');
+    if(!telefonoOk(form.elements.phone.value)){ setErr('phone','Déjanos un teléfono para llamarte (p. ej. 600 000 000).'); firstBad = firstBad || form.elements.phone; } else setErr('phone','');
     var svc = form.querySelector('.svc');
     if(!selectedServices().length){
       document.getElementById('err-services').textContent = 'Marca al menos una opción.';
@@ -119,10 +128,13 @@
     var data = {
       name: form.elements.name.value,
       email: form.elements.email.value,
+      phone: form.elements.phone.value,
       message: form.elements.message.value,
       services: selectedServices(),
       web: form.elements.web.value,
       utm_source: origen.utm_source || '',
+      utm_medium: origen.utm_medium || '',
+      utm_campaign: origen.utm_campaign || '',
       utm_content: origen.utm_content || '',
       referrer: origen.referrer || ''
     };
@@ -136,9 +148,9 @@
     .then(function(j){
       if(j.ok){
         st.className = 'form-status ok';
-        st.textContent = 'Mensaje enviado. Te respondemos en menos de 24 h laborables.';
+        st.textContent = 'Mensaje enviado. Te llamamos en las próximas 24 horas.';
         form.reset();
-        ['name','email','message','consent'].forEach(function(n){ setErr(n,''); });
+        ['name','email','phone','message','consent'].forEach(function(n){ setErr(n,''); });
         document.getElementById('err-services').textContent = '';
         form.querySelector('.svc').setAttribute('aria-invalid','false');
         msUpdate(); msOpen(false);

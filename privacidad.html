@@ -126,7 +126,7 @@
 <main>
   <span class="eyebrow">Información legal</span>
   <h1>Política de Privacidad</h1>
-  <p class="updated">Última actualización: 20 de octubre de 2026</p>
+  <p class="updated">Última actualización: 25 de octubre de 2026</p>
   <p class="lead">En Veris Automatia tratamos tus datos personales con la misma exigencia que aplicamos a la tecnología que diseñamos: con transparencia, control y trazabilidad. Esta política explica qué datos recogemos a través de este sitio web, con qué finalidad y base jurídica, durante cuánto tiempo los conservamos y cómo puedes ejercer tus derechos.</p>
 
   <!-- ÍNDICE -->
@@ -175,9 +175,10 @@
   <ul>
     <li><strong>Nombre</strong> que indicas en el formulario.</li>
     <li><strong>Dirección de correo electrónico</strong>.</li>
+    <li><strong>Número de teléfono</strong>, para llamarte y atender tu solicitud.</li>
     <li><strong>Servicios de interés</strong> que marques en el formulario.</li>
     <li><strong>Mensaje</strong> o consulta que escribes en el campo de texto, así como cualquier dato personal que decidas incluir libremente en él.</li>
-    <li><strong>Origen de la visita:</strong> los parámetros de campaña (<em>utm_source</em> y <em>utm_content</em>) del enlace por el que llegaste, si los lleva, y el dominio de la web desde la que llegaste (no la dirección completa de la página). Este dato se guarda temporalmente en tu navegador (<em>sessionStorage</em>, que se borra al cerrar la pestaña) y solo se nos envía junto con el formulario, si decides enviarlo. Nos sirve para saber por qué canal nos has conocido.</li>
+    <li><strong>Origen de la visita:</strong> los parámetros de campaña (<em>utm_source</em>, <em>utm_medium</em>, <em>utm_campaign</em> y <em>utm_content</em>) del enlace por el que llegaste, si los lleva, y el dominio de la web desde la que llegaste (no la dirección completa de la página). Este dato se guarda temporalmente en tu navegador (<em>sessionStorage</em>, que se borra al cerrar la pestaña) y solo se nos envía junto con el formulario, si decides enviarlo. Nos sirve para saber por qué canal nos has conocido.</li>
   </ul>
   <p>No recogemos categorías especiales de datos (los llamados «datos sensibles» del artículo 9 del RGPD). Te pedimos que no incluyas ese tipo de información en el mensaje. Los datos del formulario se registran en nuestro registro interno de contactos (CRM) para gestionar tu solicitud. El formulario de contacto no te suscribe a ningún boletín ni a comunicaciones comerciales. Si pides un recurso gratuito, el tratamiento se explica en el <a href="#recursos">apartado 12</a>.</p>
 
@@ -190,7 +191,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>Atender tu solicitud de contacto, responder a tu consulta y poner en marcha, en su caso, la relación comercial que solicites.</td>
+        <td>Atender tu solicitud de contacto: confirmarte por correo que la hemos recibido, llamarte al teléfono que nos indicas, responder a tu consulta y poner en marcha, en su caso, la relación comercial que solicites.</td>
         <td>Tu <strong>consentimiento</strong>, que prestas al marcar la casilla de aceptación y enviar el formulario — artículo 6.1.a) del RGPD.</td>
       </tr>
       <tr>
@@ -203,7 +204,7 @@
       </tr>
     </tbody>
   </table>
-  <p>El suministro de estos datos es voluntario, pero necesario para que podamos responderte: si no nos facilitas tu nombre, tu correo y al menos un servicio de interés (o un mensaje), no podremos atender tu solicitud. El mensaje es opcional.</p>
+  <p>El suministro de estos datos es voluntario, pero necesario para que podamos responderte: si no nos facilitas tu nombre, tu correo, tu teléfono y al menos un servicio de interés (o un mensaje), no podremos atender tu solicitud. El mensaje es opcional.</p>
 
   <!-- 4 -->
   <h2 id="conservacion">4. Plazo de conservación</h2>
@@ -220,10 +221,10 @@
   <p>No vendemos, alquilamos ni cedemos tus datos a terceros con fines comerciales. Para prestar el servicio de este sitio web y atender tu solicitud nos apoyamos en los siguientes proveedores y herramientas, que tratan los datos únicamente para esa finalidad:</p>
   <ul>
     <li><strong>Alojamiento del sitio web — GitHub Pages (GitHub, Inc.).</strong> El sitio es estático y está alojado en la plataforma GitHub Pages, propiedad de GitHub, Inc. (Estados Unidos). El alojamiento sirve las páginas a tu navegador; el formulario en sí no se almacena en esta plataforma.</li>
-    <li><strong>Procesamiento del formulario de contacto — instancia propia de n8n.</strong> Cuando envías el formulario, los datos (nombre, correo, servicios de interés, mensaje y origen de la visita) se transmiten mediante una petición a un servicio de automatización <em>n8n</em> autoalojado en infraestructura propia del responsable, que valida el envío y lo hace llegar a los destinos que se indican a continuación.</li>
-    <li><strong>Aviso por correo electrónico — Gmail (Google).</strong> Se envía un correo a <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a> con tu nombre, correo, servicios de interés, origen de la visita y mensaje, a través del servicio Gmail de Google. Tu dirección de correo figura como dirección de respuesta para poder contestarte.</li>
-    <li><strong>Registro de contactos (CRM) — instancia propia de Baserow.</strong> En una base de datos <em>Baserow</em> autoalojada en infraestructura propia del responsable se crea tu ficha de contacto o, si ya existía, se añade el nuevo mensaje a ella. Se guardan tu nombre, correo, servicios de interés, origen de la visita y mensaje, con su fecha, y el mensaje se registra como interacción en tu historial para hacer seguimiento de la solicitud. También se comprueba si tu correo figura en nuestra lista de personas que han pedido no ser contactadas, para respetar esa decisión.</li>
-    <li><strong>Aviso interno por mensajería — Telegram.</strong> Se envía al responsable un aviso por Telegram con tu nombre, correo, servicios de interés, origen de la visita y el texto del mensaje (recortado si es muy largo), para poder atender tu consulta con rapidez.</li>
+    <li><strong>Procesamiento del formulario de contacto — instancia propia de n8n.</strong> Cuando envías el formulario, los datos (nombre, correo, teléfono, servicios de interés, mensaje y origen de la visita) se transmiten mediante una petición a un servicio de automatización <em>n8n</em> autoalojado en infraestructura propia del responsable, que valida el envío y lo hace llegar a los destinos que se indican a continuación.</li>
+    <li><strong>Correo electrónico — Gmail (Google).</strong> A través del servicio Gmail de Google: se envía un correo a <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a> con tu nombre, correo, teléfono, servicios de interés, origen de la visita y mensaje, con tu dirección como dirección de respuesta para poder contestarte; y, si es la primera vez que nos escribes, se te envía desde esa misma dirección un correo de confirmación de que hemos recibido tu solicitud.</li>
+    <li><strong>Registro de contactos (CRM) — instancia propia de Baserow.</strong> En una base de datos <em>Baserow</em> autoalojada en infraestructura propia del responsable se crea tu ficha de contacto o, si ya existía, se añade el nuevo mensaje a ella. Se guardan tu nombre, correo, teléfono, servicios de interés, origen de la visita y mensaje, con su fecha, y el mensaje se registra como interacción en tu historial para hacer seguimiento de la solicitud. También se comprueba si tu correo figura en nuestra lista de personas que han pedido no ser contactadas, para respetar esa decisión.</li>
+    <li><strong>Aviso interno por mensajería — Telegram.</strong> Se envía al responsable un aviso por Telegram con tu nombre, correo, teléfono, servicios de interés, origen de la visita y el texto del mensaje (recortado si es muy largo), para poder atender tu consulta con rapidez.</li>
   </ul>
   <p>Además de lo anterior, podremos comunicar tus datos a las administraciones públicas, jueces y tribunales cuando exista una obligación legal que así lo exija.</p>
 
