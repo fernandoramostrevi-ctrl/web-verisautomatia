@@ -32,7 +32,32 @@
   launcher.setAttribute('aria-label', 'Abrir el asistente de Veris Automatia');
   launcher.setAttribute('aria-expanded', 'false');
   launcher.setAttribute('aria-controls', 'vchat-panel');
-  launcher.appendChild(el('span', 'vchat-launcher-ico', '?'));
+  // Icono «brain» de Tabler Icons (MIT), creado nodo a nodo: la CSP no deja usar innerHTML.
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+  var ico = el('span', 'vchat-launcher-ico');
+  var svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('stroke-width', '2');
+  svg.setAttribute('stroke-linecap', 'round');
+  svg.setAttribute('stroke-linejoin', 'round');
+  svg.setAttribute('aria-hidden', 'true');
+  [
+    'M15.5 13a3.5 3.5 0 0 0 -3.5 3.5v1a3.5 3.5 0 0 0 7 0v-1.8',
+    'M8.5 13a3.5 3.5 0 0 1 3.5 3.5v1a3.5 3.5 0 0 1 -7 0v-1.8',
+    'M17.5 16a3.5 3.5 0 0 0 0 -7h-.5',
+    'M19 9.3v-2.8a3.5 3.5 0 0 0 -7 0',
+    'M6.5 16a3.5 3.5 0 0 1 0 -7h.5',
+    'M5 9.3v-2.8a3.5 3.5 0 0 1 7 0v10'
+  ].forEach(function(d){
+    var p = document.createElementNS(SVG_NS, 'path');
+    p.setAttribute('d', d);
+    svg.appendChild(p);
+  });
+  ico.appendChild(svg);
+  ico.appendChild(el('span', 'vchat-launcher-dot'));
+  launcher.appendChild(ico);
   launcher.appendChild(el('span', 'vchat-launcher-txt', '¿Tienes alguna duda?'));
 
   var panel = el('section', 'vchat-panel');

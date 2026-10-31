@@ -1,12 +1,17 @@
 /* Asistente de FAQ (js/chat.js). Usa los tokens de la página con valores de respaldo. */
 .vchat-launcher{position:fixed;right:20px;bottom:20px;z-index:60;display:inline-flex;align-items:center;gap:8px;
-  padding:11px 16px 11px 12px;border-radius:999px;border:1px solid var(--gold,#C9A24A);
+  padding:7px 16px 7px 7px;border-radius:999px;border:1px solid var(--gold,#C9A24A);
   background:var(--surface,#16181C);color:var(--on-dark,#ECEDEF);font:500 15px/1 "Outfit",system-ui,sans-serif;cursor:pointer;
   box-shadow:0 8px 28px rgba(0,0,0,.45);transition:transform .2s cubic-bezier(.23,1,.32,1),background .2s}
 .vchat-launcher:hover{background:var(--surface-2,#1C1F25);transform:translateY(-2px)}
 .vchat-launcher:focus-visible,.vchat-close:focus-visible,.vchat-send:focus-visible,.vchat-chip:focus-visible{outline:2px solid var(--gold,#C9A24A);outline-offset:2px}
-.vchat-launcher-ico{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;
-  background:var(--gold,#C9A24A);color:var(--ink,#0E0F12);font-weight:700;font-size:14px}
+.vchat-launcher-ico{position:relative;display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;
+  background:var(--gold,#C9A24A);color:var(--ink,#0E0F12)}
+.vchat-launcher-ico svg{width:21px;height:21px}
+/* Punto «en línea» */
+.vchat-launcher-dot{position:absolute;right:-1px;bottom:-1px;width:10px;height:10px;border-radius:50%;
+  background:#3FBF6B;border:2px solid var(--surface,#16181C);transition:border-color .2s}
+.vchat-launcher:hover .vchat-launcher-dot{border-color:var(--surface-2,#1C1F25)}
 .vchat-launcher.is-open{opacity:0;pointer-events:none}
 
 .vchat-panel{position:fixed;right:20px;bottom:20px;z-index:61;width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 40px));
