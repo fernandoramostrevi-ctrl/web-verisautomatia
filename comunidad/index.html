@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; media-src 'self'; connect-src 'self' https://n8n.frautomatia.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; require-trusted-types-for 'script'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Insider IA &amp; Automatización — comunidad gratis de Veris Automatia</title>
+<meta name="description" content="Grupo de WhatsApp gratis para empresas: el kit de cada vídeo, novedades de IA aplicadas a negocio, directos y una carpeta con todos los recursos.">
+<link rel="canonical" href="https://verisautomatia.com/comunidad/">
+<meta name="theme-color" content="#0E0F12">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verisautomatia.com/comunidad/">
+<meta property="og:site_name" content="Veris Automatia">
+<meta property="og:title" content="Insider IA &amp; Automatización · comunidad gratis">
+<meta property="og:description" content="Un grupo de WhatsApp para aplicar la IA en tu negocio, sin el ruido de siempre. Kits, guías, novedades y directos. Gratis.">
+<meta property="og:image" content="https://verisautomatia.com/brand/logo-va/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Insider IA &amp; Automatización · comunidad gratis">
+<meta name="twitter:description" content="Un grupo de WhatsApp para aplicar la IA en tu negocio, sin el ruido de siempre. Kits, guías, novedades y directos. Gratis.">
+<meta name="twitter:image" content="https://verisautomatia.com/brand/logo-va/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/logo-va/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/brand/logo-va/favicon-192.png">
+<link rel="apple-touch-icon" href="/brand/logo-va/apple-touch-icon.png">
+<link rel="preload" href="/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;font-display:swap;src:url('/fonts/outfit.woff2') format('woff2');}
+  @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url('/fonts/space-grotesk.woff2') format('woff2');}
+  :root{
+    --ink:#0E0F12; --surface:#16181C; --surface-2:#1C1F25; --line:#282C33;
+    --gold:#C9A24A; --gold-soft:#E0C078; --silver:#C8CCD2; --gray:#8A909A;
+    --gray-2:#B6BBC3; --on-dark:#ECEDEF; --hueso:#F4F2EC;
+    --gold-a14:rgba(201,162,74,.14); --gold-a35:rgba(201,162,74,.35);
+    --ease-out:cubic-bezier(.23,1,.32,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--ink);color:var(--on-dark);font-family:"Outfit",system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif;letter-spacing:-.02em;text-wrap:balance}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  @media(max-width:480px){.wrap{padding:0 16px}}
+  .gold{color:var(--gold)}
+  .eyebrow{display:inline-block;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+
+  /* botones */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 28px;border-radius:10px;font-weight:600;font-size:16px;cursor:pointer;border:1px solid transparent;font-family:inherit;
+    transition:transform .18s var(--ease-out),filter .18s var(--ease-out),box-shadow .18s var(--ease-out),border-color .18s var(--ease-out),background-color .18s var(--ease-out)}
+  .btn:active{transform:scale(.97)}
+  .btn:disabled{opacity:.6;cursor:wait}
+  .btn:focus-visible{outline:2px solid var(--gold-soft);outline-offset:3px}
+  .btn .ico{width:18px;height:18px;stroke-width:2.2}
+  .btn-gold{background:linear-gradient(135deg,#E0C078,#C9A24A);color:#181206;box-shadow:0 6px 20px rgba(201,162,74,.18)}
+  .btn-ghost{background:transparent;color:var(--on-dark);border-color:var(--line)}
+  @media(hover:hover) and (pointer:fine){
+    .btn-gold:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 10px 28px rgba(201,162,74,.28)}
+    .btn-ghost:hover{border-color:var(--gold-a35);background:rgba(255,255,255,.02)}
+  }
+
+  /* cabecera: solo el logo, la página tiene un único objetivo (entrar al grupo) */
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .sym{width:34px;height:32px}
+  .logo .wm{font-family:"Space Grotesk",sans-serif;font-weight:300;letter-spacing:.04em;font-size:20px;color:var(--on-dark)}
+  .logo .wm .ia{color:var(--gold);font-weight:400}
+  header.top{border-bottom:1px solid var(--line);position:relative;z-index:2}
+  .top-in{display:flex;align-items:center;height:68px}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:72px 0 64px;text-align:center;overflow:hidden;isolation:isolate}
+  .hero::before{ /* haz de luz que cae sobre la insignia */
+    content:"";position:absolute;z-index:-1;left:50%;top:-40px;width:760px;height:620px;transform:translateX(-50%);
+    background:radial-gradient(closest-side at 50% 30%,rgba(201,162,74,.20),transparent 72%),
+               conic-gradient(from 180deg at 50% 0%,transparent 160deg,rgba(201,162,74,.10) 172deg,rgba(201,162,74,.16) 180deg,rgba(201,162,74,.10) 188deg,transparent 200deg);
+    pointer-events:none}
+  .hero::after{ /* retícula de puntos que se desvanece hacia los bordes */
+    content:"";position:absolute;z-index:-2;inset:0;
+    background-image:radial-gradient(rgba(201,162,74,.22) 1px,transparent 1.4px);background-size:28px 28px;
+    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 0%,transparent 75%);
+    opacity:.35;pointer-events:none}
+  .badge{width:128px;height:128px;margin:0 auto 26px;border-radius:30px;display:grid;place-items:center;
+    background:radial-gradient(120% 120% at 50% 0%,#23262d,#121418 70%);border:1px solid var(--gold-a35);
+    box-shadow:0 0 0 6px rgba(201,162,74,.05),0 18px 60px rgba(201,162,74,.22)}
+  .badge svg{width:66px;height:62px}
+  .pill{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 10px;border:1px solid var(--gold-a35);border-radius:999px;
+    background:rgba(201,162,74,.06);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:600}
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(201,162,74,.18);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 7px rgba(201,162,74,0)}}
+  .hero h1{font-size:clamp(34px,5.6vw,62px);font-weight:600;line-height:1.06;margin:22px auto 20px;max-width:860px}
+  .hero h1 .gold{display:block}
+  .hero .lead{font-size:clamp(16.5px,1.6vw,18.5px);color:var(--gray-2);max-width:640px;margin:0 auto 30px}
+  .hero .lead strong{color:var(--on-dark);font-weight:600}
+  .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .micro{margin-top:16px;font-size:13px;color:var(--gray);letter-spacing:.02em}
+  @media(max-width:480px){.hero{padding:52px 0 48px}.badge{width:104px;height:104px;border-radius:26px}.badge svg{width:54px;height:50px}.ctas .btn{width:100%}
+    .pill{font-size:10.5px;letter-spacing:.1em;padding:6px 12px 6px 9px;gap:8px}}
+
+  /* franja de datos */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:18px;background:var(--surface);max-width:900px;margin:56px auto 0;text-align:center;overflow:hidden}
+  .facts > div{padding:24px 16px}
+  .facts > div + div{border-left:1px solid var(--line)}
+  .facts b{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.6vw,40px);font-weight:600;color:var(--gold);line-height:1.1;letter-spacing:-.02em}
+  .facts span{display:block;margin-top:6px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
+  @media(max-width:640px){.facts{grid-template-columns:1fr}.facts > div + div{border-left:0;border-top:1px solid var(--line)}.facts > div{padding:18px 16px}}
+
+  /* secciones */
+  section.block{padding:88px 0;border-top:1px solid var(--line)}
+  @media(max-width:880px){section.block{padding:64px 0}}
+  .block h2{font-size:clamp(28px,3.8vw,44px);font-weight:600;line-height:1.12;margin:14px 0 16px}
+  .block .intro{font-size:17px;color:var(--gray-2);max-width:560px}
+  .center{text-align:center}
+  .center .intro{margin:0 auto}
+  .after{margin-top:34px}
+
+  /* ---------- cómo está montado ---------- */
+  .how{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  @media(max-width:880px){.how{grid-template-columns:1fr;gap:44px}}
+  .feats{list-style:none;display:grid;gap:12px;margin-top:28px}
+  .feat{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);
+    transition:border-color .2s var(--ease-out),background-color .2s var(--ease-out)}
+  @media(hover:hover) and (pointer:fine){.feat:hover{border-color:var(--gold-a35);background:var(--surface-2)}}
+  .feat .ib{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;color:var(--gold);background:var(--gold-a14);border:1px solid rgba(201,162,74,.25);flex:0 0 auto}
+  .feat h3{font-size:16.5px;font-weight:600;letter-spacing:-.01em;margin-bottom:2px}
+  .feat p{font-size:15px;color:var(--gray-2);line-height:1.5}
+
+  /* móvil simulado con mensajes del grupo */
+  .phone{max-width:390px;width:100%;margin:0 auto;border:1px solid var(--line);border-radius:28px;background:#111317;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 0 1px rgba(201,162,74,.06),0 0 90px rgba(201,162,74,.10)}
+  .ph-head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);background:#15171b}
+  .ph-av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(120% 120% at 50% 0%,#23262d,#121418 70%);border:1px solid var(--gold-a35);flex:0 0 auto}
+  .ph-av svg{width:22px;height:21px}
+  .ph-head b{display:block;font-family:"Space Grotesk",sans-serif;font-size:15px;font-weight:600;line-height:1.2}
+  .ph-head small{display:block;font-size:12px;color:var(--gold-soft)}
+  .chat{list-style:none;display:flex;flex-direction:column;gap:12px;padding:18px 16px 16px;min-height:430px;
+    background:radial-gradient(rgba(255,255,255,.025) 1px,transparent 1.2px) 0 0/18px 18px}
+  .msg{max-width:88%;background:var(--surface-2);border:1px solid var(--line);border-radius:4px 14px 14px 14px;padding:10px 12px 8px;font-size:14px;line-height:1.45;color:var(--gray-2)}
+  .msg.hi{border-color:var(--gold-a35)}
+  .msg .tag{display:inline-block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold);
+    border:1px solid var(--gold-a35);border-radius:6px;padding:1px 7px;margin-bottom:6px}
+  .msg p{color:var(--on-dark)}
+  .msg time{display:block;text-align:right;font-size:11px;color:var(--gray);margin-top:3px}
+  .doc{display:flex;align-items:center;gap:10px;margin-top:8px;padding:9px 10px;border-radius:9px;background:rgba(0,0,0,.25);border:1px solid var(--line);font-size:13px;color:var(--on-dark)}
+  .doc .ico{color:var(--gold);width:18px;height:18px}
+  .typing{align-self:flex-start;display:flex;gap:4px;padding:10px 12px;border-radius:12px;background:var(--surface-2);border:1px solid var(--line);margin-top:auto}
+  .typing i{width:6px;height:6px;border-radius:50%;background:var(--gray);animation:blink 1.2s infinite ease-in-out}
+  .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+  @keyframes blink{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-2px)}}
+  /* js/comunidad.js añade .anim y, al entrar en pantalla, .play: los mensajes aparecen uno a uno.
+     Sin JS (o con «reducir movimiento») se ven todos desde el principio. */
+  .chat.anim .msg{opacity:0;transform:translateY(10px) scale(.98)}
+  .chat.anim.play .msg{animation:msgIn .55s var(--ease-out) forwards;animation-delay:calc(var(--i) * 1.1s + .2s)}
+  @keyframes msgIn{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.typing i,.pill .dot{animation:none}}
+
+  /* ---------- quién está detrás ---------- */
+  .about{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center;max-width:920px;margin:0 auto}
+  @media(max-width:880px){.about{grid-template-columns:1fr;gap:36px}.chat{min-height:380px}}
+  .photo{position:relative;width:100%;max-width:300px;margin:0 auto}
+  .photo::after{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid var(--gold-a35);border-radius:20px;z-index:-1}
+  .photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:20px;border:1px solid var(--line);background:var(--surface)}
+  @media(max-width:880px){.photo{max-width:240px}}
+  .about .role{font-size:14px;letter-spacing:.06em;color:var(--gray);margin:-6px 0 14px}
+  .about .bio{font-size:17px;color:var(--gray-2);max-width:520px}
+  .areas{list-style:none;margin:22px 0 30px;max-width:520px}
+  .areas li{display:flex;gap:14px;align-items:center;padding:12px 0;border-top:1px solid var(--line);font-size:15.5px;color:var(--gray-2)}
+  .areas li:last-child{border-bottom:1px solid var(--line)}
+  .areas .ico{color:var(--gold)}
+
+  /* ---------- para quién es ---------- */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:920px;margin:40px auto 0;text-align:left}
+  @media(max-width:700px){.cards{grid-template-columns:1fr}}
+  .card{padding:26px 24px;border:1px solid var(--line);border-radius:16px;background:var(--surface);transition:border-color .2s var(--ease-out),transform .2s var(--ease-out)}
+  @media(hover:hover) and (pointer:fine){.card:hover{border-color:var(--gold-a35);transform:translateY(-2px)}}
+  .card .ib{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;color:var(--gold);background:var(--gold-a14);border:1px solid rgba(201,162,74,.25);margin-bottom:18px}
+  .card h3{font-size:18px;font-weight:600;margin-bottom:6px}
+  .card p{font-size:15px;color:var(--gray-2);line-height:1.55}
+
+  /* ---------- acceso (formulario) ---------- */
+  #acceso{scroll-margin-top:16px;position:relative;isolation:isolate}
+  #acceso::before{content:"";position:absolute;z-index:-1;left:50%;top:120px;width:820px;height:620px;transform:translateX(-50%);
+    background:radial-gradient(closest-side,rgba(201,162,74,.10),transparent 75%);pointer-events:none}
+  .steps3{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:26px 0 34px;font-size:14.5px;color:var(--gray-2)}
+  .steps3 li{display:flex;align-items:center;gap:9px}
+  .steps3 .n{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--gold);border:1px solid var(--gold-a35);background:var(--gold-a14)}
+  .steps3 .sep{color:var(--gray);margin-left:4px}
+  @media(max-width:560px){.steps3{flex-direction:column;align-items:flex-start;max-width:260px;margin-left:auto;margin-right:auto}.steps3 .sep{display:none}}
+
+  .panel{max-width:470px;margin:0 auto;text-align:left;background:radial-gradient(120% 120% at 50% 0%,#1b1f26,#121418 70%);border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    box-shadow:0 24px 70px rgba(0,0,0,.4)}
+  .panel-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.18)}
+  .panel-bar .dots{display:flex;gap:7px}
+  .panel-bar .dots i{width:10px;height:10px;border-radius:50%;background:#3a3f48}
+  .panel-bar .dots i:first-child{background:var(--gold)}
+  .panel-bar span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray)}
+  .panel-in{padding:26px 26px 28px}
+  @media(max-width:480px){.panel-in{padding:22px 18px 24px}}
+  .panel .k{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .panel h3{font-size:22px;font-weight:600;margin:4px 0 2px}
+  .panel .sub{font-size:14px;color:var(--gray);margin-bottom:22px}
+  .cform{display:grid;gap:14px}
+  .cform label{font-size:13px;color:var(--gray-2);display:block;margin-bottom:6px}
+  .cform input{width:100%;background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:12px 14px;color:var(--on-dark);font-family:inherit;font-size:16px;transition:border-color .2s var(--ease-out)}
+  .cform input:focus{outline:none;border-color:rgba(201,162,74,.55)}
+  .cform input:focus-visible{outline:2px solid rgba(201,162,74,.55);outline-offset:1px}
+  .cform input[aria-invalid="true"]{border-color:#e09a9a}
+  .cform .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .cform .field-err{font-size:12.5px;color:#e09a9a;margin-top:5px;min-height:0}
+  .cform .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gray-2);cursor:pointer;margin:0}
+  .cform .consent input{width:auto;margin-top:3px;flex:0 0 auto;accent-color:var(--gold)}
+  .cform .consent a{color:var(--gold);text-decoration:underline}
+  .cform .opt{color:var(--gray)}
+  .cform .btn{width:100%;margin-top:4px}
+  .info{font-size:11.5px;color:var(--gray);line-height:1.5}
+  .info a{color:var(--gray-2);text-decoration:underline}
+  .form-status{font-size:14px;min-height:20px}
+  .form-status.err{color:#e09a9a}
+
+  footer{border-top:1px solid var(--line);padding:30px 0 34px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--gray)}
+  .foot nav{display:flex;gap:20px}
+  .foot nav a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="va" viewBox="14 12 72 84">
+    <path d="M24 86 L50 22 L76 86" fill="none" stroke="#F4F2EC" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M37 60 L48 71 L72 41" fill="none" stroke="#C9A24A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C9.5 3 11 5 12 8c1-3 2.5-5 4.5-5a2.5 2.5 0 0 1 0 5"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-live" viewBox="0 0 24 24"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2.5-3 4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-store" viewBox="0 0 24 24"><path d="M3 9 4.5 4h15L21 9"/><path d="M3 9h18v1.5a2.5 2.5 0 0 1-4.5 1.5 2.5 2.5 0 0 1-4.5 0 2.5 2.5 0 0 1-4.5 0A2.5 2.5 0 0 1 3 10.5Z"/><path d="M5 12.5V20h14v-7.5"/><path d="M10 20v-4h4v4"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></symbol>
+</defs></svg>
+
+<header class="top"><div class="wrap top-in">
+  <span class="logo"><svg class="sym"><use href="#va"/></svg><span class="wm">Veris&nbsp;Automat<span class="ia">IA</span></span></span>
+</div></header>
+
+<main>
+
+  <!-- 1 · Hero -->
+  <div class="hero"><div class="wrap">
+    <div class="badge" aria-hidden="true"><svg><use href="#va"/></svg></div>
+    <span class="pill"><span class="dot" aria-hidden="true"></span>Comunidad de WhatsApp · Veris AutomatIA</span>
+    <h1>Un grupo para aplicar la IA en tu negocio <span class="gold">sin el ruido de siempre</span></h1>
+    <p class="lead">En <strong>Insider IA &amp; Automatización</strong> comparto gratis los kits, guías y plantillas de mis vídeos, las novedades de IA que de verdad le sirven a una empresa y los directos que voy haciendo. Entras y te llevas algo útil desde el primer día.</p>
+    <div class="ctas">
+      <a class="btn btn-gold" href="#acceso">Entrar al grupo <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-ghost" href="#como">Ver cómo está montado</a>
+    </div>
+    <p class="micro">Gratis · Sin tarjeta · Solo nombre y email</p>
+
+    <div class="facts">
+      <div><b>100&nbsp;%</b><span>Gratis, sin tarjeta</span></div>
+      <div><b>1 kit</b><span>Con cada vídeo</span></div>
+      <div><b>1 carpeta</b><span>Con todos los recursos</span></div>
+    </div>
+  </div></div>
+
+  <!-- 2 · Cómo está montado -->
+  <section class="block" id="como" aria-labelledby="como-t"><div class="wrap how">
+    <div>
+      <span class="eyebrow">Cómo está montado</span>
+      <h2 id="como-t">Un solo grupo de WhatsApp. <span class="gold">Todo lo que necesitas, dentro.</span></h2>
+      <p class="intro">Sin plataformas nuevas y sin instalar nada. Entras al grupo y todo te llega al móvil, en el mismo sitio.</p>
+      <ul class="feats">
+        <li class="feat"><span class="ib"><svg class="ico"><use href="#i-gift"/></svg></span><div><h3>Kits, guías y plantillas gratis</h3><p>El material de cada vídeo, listo para aplicarlo en tu negocio.</p></div></li>
+        <li class="feat"><span class="ib"><svg class="ico"><use href="#i-folder"/></svg></span><div><h3>La carpeta de recursos</h3><p>Todo lo que comparto queda guardado y ordenado en una carpeta, enlazada en la descripción del grupo.</p></div></li>
+        <li class="feat"><span class="ib"><svg class="ico"><use href="#i-zap"/></svg></span><div><h3>Novedades de IA</h3><p>Las herramientas nuevas que le sirven a una empresa y cómo aplicarlas, explicado claro. Y aviso de cada vídeo nuevo.</p></div></li>
+        <li class="feat"><span class="ib"><svg class="ico"><use href="#i-live"/></svg></span><div><h3>Directos y talleres</h3><p>Sesiones gratis en directo. Te aviso en el grupo cuando hay una.</p></div></li>
+        <li class="feat"><span class="ib"><svg class="ico"><use href="#i-chat"/></svg></span><div><h3>Dudas en el grupo</h3><p>No es un grupo solo de avisos: puedes escribir y preguntar.</p></div></li>
+      </ul>
+      <div class="after"><a class="btn btn-gold" href="#acceso">Quiero entrar al grupo <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div>
+
+    <!-- Mensajes de ejemplo con material real del grupo (kits y vídeos publicados). -->
+    <div class="phone" aria-label="Ejemplo de mensajes del grupo de WhatsApp">
+      <div class="ph-head">
+        <span class="ph-av" aria-hidden="true"><svg><use href="#va"/></svg></span>
+        <div><b>Insider IA &amp; Automatización</b><small>Grupo de WhatsApp · Veris AutomatIA</small></div>
+      </div>
+      <ul class="chat">
+        <li class="msg" style="--i:0"><span class="tag">Vídeo nuevo</span><p>Ya está el vídeo: cómo pasar una carpeta de facturas a un panel de tu negocio con Claude, sin programar.</p><time>09:12</time></li>
+        <li class="msg hi" style="--i:1"><span class="tag">Kit</span><p>Y aquí tenéis el kit del vídeo, gratis para todos.</p><span class="doc"><svg class="ico" aria-hidden="true"><use href="#i-file"/></svg>Kit panel de facturas</span><time>09:14</time></li>
+        <li class="msg" style="--i:2"><span class="tag">Carpeta</span><p>Ya está en la carpeta de recursos, junto al kit de agentes Hermes y el resto de guías.</p><time>09:15</time></li>
+        <li class="msg" style="--i:3"><span class="tag">Directo</span><p>Próximo directo gratis: os aviso aquí con la fecha y el enlace.</p><time>18:05</time></li>
+        <li class="typing" aria-hidden="true"><i></i><i></i><i></i></li>
+      </ul>
+    </div>
+  </div></section>
+
+  <!-- 3 · Quién está detrás -->
+  <section class="block" aria-labelledby="quien-t"><div class="wrap about">
+    <div class="photo"><img src="/media/fernando-ramos.jpg" width="576" height="720" alt="Fernando Ramos, fundador de Veris AutomatIA" loading="lazy" decoding="async"></div>
+    <div>
+      <span class="eyebrow">Quién está detrás</span>
+      <h2 id="quien-t">Fernando Ramos</h2>
+      <p class="role">Fundador y consultor de automatización e IA · Veris AutomatIA</p>
+      <p class="bio">Ayudo a pymes y negocios locales a aplicar la IA y la automatización a su día a día, de forma práctica.</p>
+      <ul class="areas">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-brief"/></svg>IA aplicada a negocios</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-flow"/></svg>Automatización de procesos: facturas, pedidos y documentos</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-msg"/></svg>Recepcionistas con IA para WhatsApp y la web</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-bot"/></svg>Agentes de IA para el trabajo diario</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>Seguridad en automatizaciones y webs</li>
+      </ul>
+      <a class="btn btn-gold" href="#acceso">Entrar al grupo <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div></section>
+
+  <!-- 4 · Para quién es -->
+  <section class="block center" aria-labelledby="para-t"><div class="wrap">
+    <span class="eyebrow">Para quién es</span>
+    <h2 id="para-t">Para empresas que quieren <span class="gold">aplicar la IA en su día a día.</span></h2>
+    <p class="intro">No hace falta saber programar. Solo ganas de ponerlo en práctica en tu negocio.</p>
+    <div class="cards">
+      <div class="card"><span class="ib"><svg class="ico"><use href="#i-store"/></svg></span><h3>Tienes una pyme o un negocio local</h3><p>Recursos para aplicar la IA a algo concreto de tu día a día: facturas, atención al cliente, citas, documentos.</p></div>
+      <div class="card"><span class="ib"><svg class="ico"><use href="#i-book"/></svg></span><h3>Empiezas de cero con la IA</h3><p>Guías paso a paso para entender las herramientas y empezar a usarlas sin perderte.</p></div>
+      <div class="card"><span class="ib"><svg class="ico"><use href="#i-clock"/></svg></span><h3>Quieres ahorrar tiempo en tareas repetitivas</h3><p>Kits, prompts y plantillas listos para copiar, adaptar y usar desde el primer día.</p></div>
+      <div class="card"><span class="ib"><svg class="ico"><use href="#i-zap"/></svg></span><h3>Ya usas IA y quieres estar al día</h3><p>Las herramientas que sí le sirven a un negocio y cómo sacarles partido, sin el ruido de siempre.</p></div>
+    </div>
+    <div class="after"><a class="btn btn-gold" href="#acceso">Entrar ya al grupo <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+  </div></section>
+
+  <!-- 5 · Acceso -->
+  <section class="block center" id="acceso" aria-labelledby="acceso-t"><div class="wrap">
+    <span class="eyebrow">Solicitar acceso</span>
+    <h2 id="acceso-t">Deja tus datos y entra.</h2>
+    <p class="intro">Rellena esto y te sale el enlace directo al grupo de WhatsApp. Nada más.</p>
+    <ol class="steps3">
+      <li><span class="n">1</span>Dejas nombre y email<span class="sep" aria-hidden="true">→</span></li>
+      <li><span class="n">2</span>Te sale el enlace<span class="sep" aria-hidden="true">→</span></li>
+      <li><span class="n">3</span>Entras al grupo</li>
+    </ol>
+
+    <div class="panel">
+      <div class="panel-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span>Acceso</span></div>
+      <div class="panel-in">
+        <span class="k">VA · Comunidad</span>
+        <h3>Insider IA &amp; Automatización</h3>
+        <p class="sub">Comunidad de WhatsApp · Veris AutomatIA</p>
+
+        <!-- data-recurso tiene que estar en la lista RECURSOS del workflow de n8n (nfuAzZPPupFCNiDj); data-consent-version, en CONSENTIMIENTOS.
+             Los textos de las casillas tienen que ser IGUALES a los de esa versión en el workflow. -->
+        <form class="cform" id="lead-form" novalidate data-recurso="comunidad" data-consent-version="2026-10-20-recurso" data-gracias="/comunidad/gracias.html">
+          <div>
+            <label for="lf-name">Nombre</label>
+            <input id="lf-name" name="name" type="text" autocomplete="given-name" maxlength="120" placeholder="Tu nombre" required aria-describedby="err-name">
+            <p class="field-err" id="err-name" role="alert"></p>
+          </div>
+          <div>
+            <label for="lf-email">Email</label>
+            <input id="lf-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" placeholder="nombre@correo.com" required aria-describedby="err-email">
+            <p class="field-err" id="err-email" role="alert"></p>
+          </div>
+          <!-- Honeypot con nombre que el autocompletado no reconoce (un «web» lo rellenan los gestores de contraseñas). -->
+          <div class="hp" aria-hidden="true">
+            <label for="lf-hp">No rellenar</label>
+            <input id="lf-hp" name="hp_k7q" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <label class="consent" for="lf-consent">
+            <input id="lf-consent" name="consent_privacidad" type="checkbox" required aria-describedby="err-consent_privacidad">
+            <span>He leído la <a href="/privacidad.html#recursos" target="_blank" rel="noopener">política de privacidad</a> y acepto que Veris Automatia trate mis datos para enviarme la invitación al grupo de WhatsApp donde se comparte el recurso.</span>
+          </label>
+          <p class="field-err" id="err-consent_privacidad" role="alert"></p>
+          <label class="consent" for="lf-comercial">
+            <input id="lf-comercial" name="consent_comercial" type="checkbox">
+            <span>Quiero recibir también por email novedades y recursos de Veris Automatia. Puedo darme de baja cuando quiera. <span class="opt">(Opcional)</span></span>
+          </label>
+          <button class="btn btn-gold" type="submit">Quiero entrar al grupo <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <p class="info"><strong>Información básica:</strong> responsable, Fernando Ramos Treviño (Veris Automatia). Finalidad: invitarte al grupo de WhatsApp donde se comparte el recurso y, solo si marcas la segunda casilla, enviarte novedades por email. Legitimación: tu consentimiento. No se ceden datos a terceros. Puedes acceder, rectificar o suprimir tus datos en <a href="mailto:vaia@verisautomatia.com">vaia@verisautomatia.com</a>. Más información en la <a href="/privacidad.html#recursos" target="_blank" rel="noopener">política de privacidad</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div></section>
+
+</main>
+
+<footer><div class="wrap foot">
+  <span>© 2026 Fernando Ramos · Veris Automatia</span>
+  <nav><a href="/privacidad.html">Privacidad</a><a href="/aviso-legal.html">Aviso legal</a></nav>
+</div></footer>
+
+<script src="/js/recurso-landing.js"></script>
+<script src="/js/comunidad.js"></script>
+</body>
+</html>
