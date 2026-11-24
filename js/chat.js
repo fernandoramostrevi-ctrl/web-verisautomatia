@@ -5,7 +5,7 @@
   var ENDPOINT = 'https://n8n.frautomatia.com/webhook/4c7e2a19-8b3d-4f6a-9e15-2d0b7c8a6f41/chat';
   var MAX = 500;
   var TIMEOUT_MS = 30000;
-  var SALUDO = '¡Hola! Soy el asistente de Veris Automatia. Te resuelvo dudas sobre la Radiografía Operativa, cómo trabajamos y qué construimos. ¿Qué quieres saber?';
+  var SALUDO = '¡Hola! Soy el asistente de inteligencia artificial de Veris Automatia. No soy una persona. Te resuelvo dudas sobre la Radiografía Operativa, cómo trabajamos y qué construimos. ¿Qué quieres saber?';
   var SUGERENCIAS = ['¿Qué es la Radiografía Operativa?', '¿Cuánto cuesta?', '¿Me encaja si soy una pyme pequeña?'];
   var FALLO = 'No he podido responder ahora mismo. Escríbenos a vaia@verisautomatia.com y te contestamos en menos de 24 h laborables.';
 
