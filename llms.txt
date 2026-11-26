@@ -18,7 +18,7 @@ Veris Automatia ("Veris = veracidad") ayuda a empresas a conectar sus sistemas, 
 ## Soluciones productizadas
 - Recepcionista 24/7 por WhatsApp: asistente de IA que atiende al instante, registra clientes, agenda citas en el calendario y envía recordatorios automáticos 24 h y 1 h antes; escala a una persona cuando hace falta. https://verisautomatia.com/servicios/recepcionista-whatsapp.html
 - Automatización de procesos y agentes de IA: flujos a medida para facturación y cobros, pedidos y presupuestos, gestión documental y traspaso de datos entre ERP, CRM y otros sistemas; trazables, reversibles y desplegados en la infraestructura del cliente. https://verisautomatia.com/servicios/automatizacion-procesos.html
-- Aplicaciones a medida: herramientas internas ligeras adaptadas a la operativa de cada empresa (calculadoras técnicas, paneles de seguimiento de obra, tableros de tareas a partir de reuniones), sin licencias por usuario. https://verisautomatia.com/servicios/aplicaciones-medida.html
+- Aplicaciones a medida: herramientas internas ligeras adaptadas a la operativa de cada empresa (calculadoras técnicas, paneles de seguimiento de obra, tableros de tareas a partir de reuniones), en propiedad del cliente o como servicio mensual. https://verisautomatia.com/servicios/aplicaciones-medida.html
 - Creación de webs y SEO: webs profesionales nuevas o rediseñadas sobre la existente, rápidas y con SEO on-page completo (metadatos, datos estructurados, sitemap); el código queda en propiedad del cliente. https://verisautomatia.com/servicios/creacion-webs.html
 
 ## Principios
